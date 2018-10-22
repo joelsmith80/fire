@@ -1,0 +1,13 @@
+.about-page {
+  .internal-page-nav {
+    margin-bottom: 1rem;
+    @include responsive(35){
+      margin-bottom: 0;
+      text-align: right;
+    }
+  }
+}
+
+.about-page-intro {
+  background: white;
+}

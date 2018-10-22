@@ -1,0 +1,28 @@
+#lightbox {
+  background: rgba(0,0,0,0.9);
+  display: none;
+  height: 100%;
+  left: 0;
+  padding: 4rem 2rem 2rem 2rem;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 101;
+  img {
+    display: block;
+    max-height: 100%;
+    margin: 0 auto;
+    width: auto;
+  }
+  span {
+    cursor: pointer;
+    color: white;
+    content: 'Close';
+    display: inline-block;
+    position: fixed;
+    text-decoration: underline;
+    top: 2rem;
+    right: 2rem;
+    z-index: 101;
+  }
+}

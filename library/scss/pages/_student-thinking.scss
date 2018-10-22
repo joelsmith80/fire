@@ -1,0 +1,11 @@
+.student-thinking-assessments-nav {
+  font-size: 1rem;
+  margin-bottom: $stanPad;
+  @include responsive(35){
+    font-size: 1.1rem;
+  }
+  @include responsive(45){
+    font-size: 1.25rem;
+    margin-bottom: 0;
+  }
+}

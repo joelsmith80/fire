@@ -1,0 +1,80 @@
+.full-bleed-video-tease {
+  background-blend-mode: luminosity;
+  background-color: $primary;
+  // background-image: url($imgs + "iawatst.png");
+  background-image: url($imgs + "iawatst.jpg");
+  background-position: right bottom;
+  background-size: cover;
+  padding: 0 !important;
+  position: relative;
+  &:before {
+    background-image: -webkit-radial-gradient(transparent,rgba(0,0,0,0.8));
+    background-image: -moz-radial-gradient(transparent,rgba(0,0,0,0.8));
+    background-image: radial-gradient(transparent,rgba(0,0,0,0.8));
+    content: '';
+    display: block;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+  &:after {
+    background-image: url($imgs + "icons/play-white.png");
+    background-position: right $stanPad bottom $stanPad;
+    background-repeat: no-repeat;
+    background-size: 4rem 4rem;
+    content: '';
+    display: block;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+  a {
+    color: white;
+    display: block;
+    padding: $stanPad 0;
+    position: relative;
+    text-decoration: none;
+    z-index: 1000;
+  }
+  .section-header {
+    margin: 0;
+    padding: 6rem 50% 0 0;
+    padding-top: 6rem;
+    .section-title {
+      margin-bottom: 0;
+    }
+    p {
+      font-weight: 500;
+      margin: 0;
+    }
+  }
+  @include responsive(25){
+    .section-header {
+      padding-top: 10rem;
+    }
+  }
+  @include responsive(35){
+    min-height: 500px;
+    &:after {
+      background-position: center;
+    }
+    .region {
+      height: 100%;
+    }
+    .section-header {
+      bottom: 0;
+      bottom: -20rem + ($stanPad * 3);
+      padding: 0 0 0 66.67%;
+      position: absolute;
+      text-align: right;
+    }
+    a {
+      padding: ($stanPad * 3) 0;
+      padding: 20rem 0;
+    }
+  }
+}

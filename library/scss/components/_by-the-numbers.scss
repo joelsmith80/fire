@@ -1,0 +1,45 @@
+.by-the-numbers {
+  background: $secondary;
+  padding: 0 !important;
+  .section-header {
+    @include accessible-hide;
+  }
+}
+
+.by-the-numbers-list {
+	@include clearfix;
+	margin: 0;
+	li {
+    padding: $stanPad;
+		&:nth-child(odd){
+			background: darken($secondary,4%);
+		}
+	}
+  p {
+    font-size: 0.95rem;
+    margin-bottom: 0;
+  }
+	span {
+		display: block;
+		font-size: 1.75rem;
+		font-weight: bold;
+    line-height: 1.5;
+	}
+
+	@include responsive(35){
+		display: flex;
+		flex-wrap: wrap;
+		li {
+			box-sizing: border-box;
+			display: inline-block;
+			text-align: center;
+			vertical-align: top;
+      width: 16.64%;
+		}
+	}
+  @include responsive(45){
+    span {
+      font-size: 2rem;
+    }
+  }
+}

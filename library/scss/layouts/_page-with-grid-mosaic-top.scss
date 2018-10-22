@@ -1,0 +1,61 @@
+.page-with-grid-mosaic-top {
+  .internal-page-nav {
+    margin-bottom: 1rem;
+    @include responsive(35){
+      margin-bottom: 0;
+      text-align: right;
+    }
+  }
+  @include responsive(35){
+    section:first-child {
+      padding-bottom: 0;
+    }
+  }
+}
+
+.page-with-grid-mosaic-top-intro {
+  background: white;
+}
+
+.page-with-grid-mosaic-top-intro-main {
+  @include responsive(35){
+    background: white;
+    margin-top: -17.5rem;
+    margin-top: -14rem;
+    margin-top: calc(-14rem - 1px);
+    padding: ($stanPad * 2);
+    position: relative;
+    &:before {
+      background: white;
+      content: '';
+      display: block;
+      height: 100%;
+      left: -4px;
+      position: absolute;
+      top: 0;
+      width: 4px;
+    }
+  }
+  @include responsive(45){
+    margin-top: -15.75rem;
+    margin-top: -13.25rem;
+    padding: ($stanPad * 3);
+    &:before {
+      left: -1px;
+      width: 1px;
+    }
+  }
+  @include responsive(5){
+    margin-top: -20rem;
+    margin-top: -16.75rem;
+    margin-left: 12px;
+    padding: ($stanPad * 4);
+    &:before {
+      left: -2px;
+      width: 2px;
+    }
+  }
+  @include responsive(35){
+    padding-bottom: 0;
+  }
+}

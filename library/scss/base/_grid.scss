@@ -1,0 +1,86 @@
+.wrap {
+  @include clearfix;
+  margin: 0 auto;
+  padding: 0 1rem;
+  position: relative;
+  width: 100%;
+  @include responsive(35){
+    padding: 0;
+  }
+}
+
+.region {
+  @include clearfix;
+}
+
+@include responsive(3){
+
+  $wrapWidth: 720px;
+  $column: 40px;
+  $gutter: 20px;
+
+  .wrap {
+    width: $wrapWidth;
+  }
+
+  .region {
+    margin: 0 ($gutter / 2);
+  }
+
+  $class-slug: t !default;
+  @for $i from 1 through 12 {
+    .#{$class-slug}-#{$i}{
+      $gutters: $i - 1;
+      float: left;
+      width: ($column * $i) + ($gutter * $gutters);
+    }
+  }
+}
+
+@include responsive(4){
+
+  $wrapWidth: 960px;
+  $column: 60px;
+  $gutter: 20px;
+
+  .wrap {
+    width: $wrapWidth;
+  }
+
+  .region {
+    margin: 0 ($gutter / 2);
+  }
+
+  $class-slug: d !default;
+  @for $i from 1 through 12 {
+    .#{$class-slug}-#{$i}{
+      $gutters: $i - 1;
+      float: left;
+      width: ($column * $i) + ($gutter * $gutters);
+    }
+  }
+}
+
+@include responsive(5){
+
+  $wrapWidth: 1176px;
+  $column: 74px;
+  $gutter: 24px;
+
+  .wrap {
+    width: $wrapWidth;
+  }
+
+  .region {
+    margin: 0 ($gutter / 2);
+  }
+
+  $class-slug: w !default;
+  @for $i from 1 through 12 {
+    .#{$class-slug}-#{$i}{
+      $gutters: $i - 1;
+      float: left;
+      width: ($column * $i) + ($gutter * $gutters);
+    }
+  }
+}

@@ -1,0 +1,44 @@
+img.enlargement {
+  display: none;
+}
+
+html.blackout {
+  height: 100%;
+  margin-top: 0 !important;
+  position: fixed;
+  width: 100%;
+  &:before {
+    background: black;
+    content: '';
+    display: block;
+    height: 100%;
+    position: fixed;
+    width: 100%;
+    // z-index: 1000;
+  }
+  #wpadminbar {
+    display: none;
+  }
+}
+
+a.screenfull-target-link {
+  background: black;
+  height: 100%;
+  left: 0;
+  padding: 4rem;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  img, h3 {
+    display: none;
+    width: auto;
+  }
+  img.enlargement {
+    display: inline-block;
+    max-height: 100%;
+    text-align: center;
+    /*opacity: 1;*/
+  }
+}

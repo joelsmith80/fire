@@ -1,0 +1,31 @@
+// get rid of the padding in the first section
+.founders-page-first-section {
+  padding-top: 0 !important;
+}
+
+.founders-page-bio-region-title {
+  margin-top: 0 !important;
+}
+
+.founders-page-bio-region-text-space {
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.founders-page-image-aside {
+  img {
+    margin-bottom: $stanPad;
+    width: 100%;
+  }
+  @include responsive(2){
+    float: left;
+    margin-right: $stanPad;
+    width: 33.33%;
+  }
+  @include responsive(35){
+    img {
+      margin-bottom: 0;
+    }
+  }
+}

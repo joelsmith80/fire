@@ -1,0 +1,22 @@
+.oss-intro-section {
+  padding-bottom: 0 !important;
+  p {
+    margin-bottom: 0;
+  }
+  .page-intro {
+    @include responsive(35){
+      padding-right: 25%;
+    }
+    @include responsive(5){
+      padding-right: 33.33%;
+    }  
+  }
+}
+
+.oss-page {
+  @include responsive(1){
+    .card-set-item:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

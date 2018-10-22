@@ -1,0 +1,122 @@
+.shop_table {
+  border-collapse: separate;
+  margin-top: 1rem;
+  width: 100%;
+  @include responsive(35){
+    border-bottom: 2px solid $gray-shadow;
+  }
+  a {
+    color: $coral;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  a.button {
+    color: $charcoal;
+    color: white;
+    padding: ($stanPad / 4) ($stanPad / 2);
+    text-decoration: none;
+    @include responsive(3){
+      margin-bottom: ($stanPad / 4);
+    }
+    @include responsive(45){
+      margin-bottom: 0;
+    }
+  }
+  thead {
+    display: none;
+    @include responsive(35){
+      display: table-header-group;
+    }
+  }
+  tr {
+    display: block;
+    @include responsive(35){
+      display: table-row;
+    }
+  }
+  th, td {
+    font-size: 0.9rem;
+    text-align: center;
+    vertical-align: middle;
+  }
+  th {
+    color: lighten($charcoal, 15%);
+    font-size: 0.85rem;
+    font-weight: normal;
+    padding: ($stanPad / 4) ($stanPad / 4) ($stanPad / 4) 0;
+    text-align: left;
+    @include responsive(35){
+      text-align: center;
+    }
+  }
+  td {
+    display: block;
+    text-align: right;
+    &:before {
+      content: attr(data-title) ": ";
+      float: left;
+      font-weight: 700;
+    }
+    @include responsive(35){
+      display: table-cell;
+      text-align: center;
+      &:before {
+        content: none;
+      }
+    }
+  }
+  tbody {
+    @include responsive(35){
+      background: white;
+    }
+    tr {
+      border-bottom: 1px solid $gray;
+      margin-bottom: $stanPad;
+      @include responsive(35){
+        margin-bottom: 0;
+      }
+    }
+    td {
+      border-right: 1px solid $gray;
+      border-bottom: 1px solid $gray;
+      padding: 1rem;
+      @include responsive(35){
+        padding: ($stanPad / 2);
+      }
+    }
+    tr:nth-child(odd){
+      background: white;
+      @include responsive(35){
+        background: none;
+        td {
+          background-image: url($imgs + "diagonal-10.0.png");
+        }
+      }
+    }
+    tr:nth-child(even){
+      @include responsive(12){
+        td {
+          border-bottom: 1px solid $gray-shadow;
+          &:last-child {
+            border: none;
+          }
+        }
+      }
+    }
+    tr:last-child {
+      td {
+        border-bottom: none;
+      }
+    }
+  }
+  td.order-actions {
+    &:before {
+      content: none;
+    }
+    @include responsive(35){
+      text-align: center;
+    }
+  }
+}

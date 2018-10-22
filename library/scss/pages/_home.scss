@@ -1,0 +1,59 @@
+.what-we-do-banner {
+  background: $primary;
+  color: white;
+  p {
+    margin: 0;
+  }
+  aside p {
+    font-size: 1.5rem;
+    font-weight: 300;
+  }
+  @include responsive(35){
+    padding: 0 !important;
+    .main,
+    aside {
+      padding-top: ($stanPad * 3);
+      padding-bottom: ($stanPad * 3);
+    }
+    .main {
+      float: right;
+      p {
+        font-size: 1.25rem;
+      }
+    }
+    aside {
+      background: white;
+      padding-right: $stanPad;
+      position: relative;
+      text-align: right;
+      &:before {
+        background: white;
+        content:'';
+        display: block;
+        height: 100%;
+        left: -300%;
+        position: absolute;
+        top: 0;
+        width: 300%;
+      }
+      p {
+        color: $primary;
+        font-size: 1.7rem;
+      }
+    }
+  }
+  @include responsive(45){
+    .main {
+      padding-left: $stanPad;
+    }
+    aside {
+      padding-right: ($stanPad * 2);
+    }
+  }
+}
+
+.highlighted-projects-grid {
+  .card-title {
+    margin: 0;
+  }
+}

@@ -1,0 +1,213 @@
+
+
+
+.single-blog-byline-dateline {
+  margin: 0 0 1.5rem 0;
+}
+  .single-blog-byline,
+  .single-blog-dateline {
+    margin: 0;
+  }
+
+.single-blog-featured-image-space {
+  margin-bottom: $stanPad;
+}
+
+.single-blog {
+  @include responsive(35){
+    overflow-x: hidden;
+  }
+}
+
+.single-blog-main-content {
+  background: white;
+  padding: $stanPad;
+  @include responsive(35){
+    position: relative;
+  }
+  @include responsive(5){
+    padding: ($stanPad * 3);
+  }
+}
+  .single-blog-feedback-prompt {
+    font-weight: 500;
+    margin: $stanPad 0;
+  }
+  .single-blog-bios {
+    font-style: italic;
+    > div {
+      margin-bottom: $stanPad;
+    }
+  }
+
+.single-blog-social-share-box {
+  @include clearfix;
+  margin: 1rem 0 0 0;
+  span,
+  ul {
+    float: left;
+  }
+  span {
+    line-height: 2rem;
+    margin-right: 0.5rem;
+  }
+}
+  .single-blog-social-share-list {
+    margin: 0;
+    span {
+      margin-right: 0.5rem;
+    }
+    li {
+      float: left;
+      margin-right: 0.5rem;
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+    a {
+      @include transition(all $transDur);
+      background-color: darken($gray,8%);
+      background-image: url($imgs + 'icons/mini-social-icons.png');
+      background-position: 0 0;
+      background-size: 22rem 6rem;
+      color: transparent;
+      color: rgba(255,255,255,0);
+      display: block;
+      height: 2rem;
+      overflow: hidden;
+      position: relative;
+      width: 2rem;
+    }
+    li.twitter a {
+      background-position: 6rem 0;
+    }
+    li.facebook a:hover {
+      background-position: 0 4rem;
+    }
+    li.twitter a:hover {
+      background-position: 6rem 4rem;
+    }
+  }
+
+.single-blog-meta-item {
+  margin: 0;
+}
+
+// categories, tags, etc.
+.single-blog-misc-meta {
+  margin-top: $stanPad;
+  margin-bottom: $stanPad;
+}
+
+  .single-blog-tags {
+    margin-top: 0.5rem;
+    a {
+      display: inline-block;
+    }
+  }
+
+// the drop cap in the entry-content
+.single-blog-entry-content {
+  p:first-child:first-letter {
+    float: left;
+    font-size: 3rem;
+    line-height: 3rem;
+    padding: 0.25rem 0.25rem 0.5rem 0;
+    font-weight: 500;
+  }
+}
+
+.single-blog-footer {
+  padding-top: $stanPad;
+}
+
+// give a little extra weight to the footnotes in the body
+.entry-content sup a {
+  font-weight: 700;
+}
+.single-blog-footnotes {
+  font-size: 0.85rem;
+  .single-blog-footnotes-header {
+    font-size: 1rem;
+  }
+  ol {
+    padding-left: 0 !important;
+  }
+  li {
+    list-style: none !important;
+  }
+  a {
+    font-weight: 700;
+  }
+}
+
+@include responsive(35){
+  .single-blog-header {
+    margin-bottom: 0;
+  }
+  .single-blog-title-region {
+    padding-bottom: ($stanPad * 3);
+  }
+  .single-blog-main {
+    background: white;
+    .region {
+      // background: pink;
+    }
+  }
+  .single-blog-main-content {
+    float: right;
+    padding: ($stanPad * 2);
+    padding: ($stanPad * 2) ($stanPad * 2) ($stanPad * 2) $stanPad;
+  }
+  /*.single-blog-meta,
+  .single-blog-misc-meta {
+    > * {
+      padding-right: $stanPad;
+    }
+  }*/
+  .single-blog-misc-meta {
+    margin-top: 0;
+  }
+  .single-blog-byline-dateline {
+    background: red;
+    padding: 0 $stanPad ($stanPad * 2) 0;
+    position: relative;
+    &:before {
+      background: $gray;
+      content: '';
+      display: block;
+      height: 100%;
+      left: -400%;
+      position: absolute;
+      top: 0;
+      width: 500%;
+    }
+    > * {
+      position: relative;
+    }
+  }
+    .single-blog-dateline {
+      font-style: italic;
+      font-weight: 300;
+    }
+  .single-blog-footer {
+    padding-top: ($stanPad * 3);
+  }
+}
+
+.ed-note-section {
+  font-weight: 300;
+  p:first-child:first-letter {
+    float: left;
+    font-size: 3rem;
+    line-height: 3rem;
+    padding: 0.25rem 0.25rem 0.5rem 0;
+    font-weight: 500;
+  }
+  @include responsive(35){
+    .section-content {
+      @include columns(3);
+
+    }
+  }
+}

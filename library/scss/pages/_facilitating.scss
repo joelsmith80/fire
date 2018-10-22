@@ -1,0 +1,147 @@
+// make sure the page is tall enough not to bobble around
+.facilitating-page {
+  min-height: 1000px;
+}
+
+.facilitating-page {
+  section:last-child {
+    padding-bottom: $stanPad;
+    @include responsive(35){
+      padding-bottom: ($stanPad * 3);
+    }
+  }
+}
+
+.facilitating-menu-section {
+  margin-top: $stanPad;
+  margin-bottom: $stanPad;
+  @include responsive(35){
+    margin-top: 0;
+  }
+}
+
+// scatter the cards away when clicked
+.facilitating-menu {
+  .card-set-item {
+    transform: translate(0%) rotate(0deg);
+    @include transition(all 0.6s);
+    @include responsive(1){
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+  &.scatter {
+    .card-set-item:nth-child(odd) {
+      transform: translate(-1000%) rotate(45deg);
+    }
+    .card-set-item:nth-child(even) {
+      transform: translate(1000%) rotate(-45deg);
+    }
+  }
+}
+
+// basic styles for each step
+.facilitating-step {
+  @include clearfix;
+  background: white;
+  margin-bottom: $stanPad;
+  padding-right: $stanPad !important;
+  padding-left: $stanPad !important;
+  position: relative;
+  .section-subtitle {
+    font-size: 1.1rem;
+    line-height: 1.5rem;
+  }
+  h2, h3, h4 {
+    margin-top: 0 !important;
+  }
+  ol {
+    padding-left: 0;
+    li {
+      list-style: none;
+      margin-top: $stanPad;
+    }
+  }
+  .js-close-link {
+    background: $gray;
+    @include rounded(50%);
+    box-shadow: inset 0px 5px 10px darken($gray,5%);
+    color: transparent;
+    color: rgba(0,0,0,0);
+    display: none;
+    height: 2rem;
+    overflow: hidden;
+    position: absolute;
+    right: 1rem;
+    width: 2rem;
+    z-index: 1000;
+    &:before {
+      color: $cta;
+      content: "×";
+      display: block;
+      font-family: sans-serif;
+      font-weight: 700;
+      height: 100%;
+      left: 0;
+      line-height: 1;
+      padding-top: 0.45rem;
+      position: absolute;
+      text-align: center;
+      top: 0;
+      width: 100%;
+    }
+  }
+  .js-close-link-top {
+    top: 1rem;
+  }
+  .js-close-link-bottom {
+    bottom: 1rem;
+  }
+  .section-header {
+    padding-right: 2rem;
+  }
+  @include responsive(35){
+    padding-right: ($stanPad * 2) !important;
+    padding-left: ($stanPad * 2) !important;
+    .section-header,
+    .main {
+      float: left;
+    }
+    .section-header {
+      padding-right: ($stanPad / 2);
+      padding-right: 0;
+      width: 33.33%;
+      width: 29%;
+    }
+    .main {
+      padding-left: ($stanPad / 2);
+      padding-left: $stanPad;
+      width: 66.67%;
+      width: 71%;
+    }
+  }
+  @include responsive(45){
+    padding-right: ($stanPad * 3) !important;
+    padding-left: ($stanPad * 3) !important;
+    .main {
+      padding-left: 1.5rem;
+    }
+  }
+}
+
+/*h3,
+h4 {
+  &.dig-deeper-title {
+    font-size: 1.35rem;
+    font-weight: 300;
+  }
+}*/
+
+.js-enabled {
+  .facilitating-step {
+    .js-close-link {
+      display: block;
+    }
+  }
+}

@@ -1,0 +1,459 @@
+$gray-shadow: #e4e8ee;
+$stanPad: 1.25rem;
+$charcoal: #4D4D56;
+$text-color: $charcoal;
+$transDur: 0.25s;
+$cta: #FF6460;
+
+// mobile breakpoints
+@import "../base/breakpoints";
+
+/* MISC STUFF */
+
+.entry-content.page-effect{float:left;}
+.entry-content #npe-content .npe-accept-cards-block img{display:inline-block;}
+body .npe2-plugin-panel .asset-t select{background-size:auto;}
+#npe-content label{display:inline-block;}
+.npe-nl-btn{padding:5px;}
+body .npe2-plugin-panel .footer-section-panel input {border-radius: 0;}
+.entry-header, .entry-content, .entry-summary, .entry-meta {max-width: none;}
+
+// required fields
+body {
+  .npe2-plugin-panel {
+    input.required,
+    textarea.required,
+    select.required {
+      border-left: 2px solid $cta !important;
+    }
+  }
+}
+
+/* GLOBAL EVENTS */
+
+/* blow up their negative margin layout convention */
+body .npe2-plugin-panel .common-box .row-event {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+// hide the theme header on these pages
+.fundly-events-container {
+  .page-header {
+    border: none;
+    clip: rect(1px, 1px, 1px, 1px);
+    height: 1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+  #loadedContent p {
+    margin-bottom: $stanPad;
+    span {
+      color: $text-color;
+      font-size: 16px;
+    }
+  }
+}
+
+/* totally blow up their padding system */
+body {
+  .npe2-plugin-panel {
+    .npe-col-xs-1,
+    .npe-col-sm-1,
+    .npe-col-md-1,
+    .npe-col-lg-1,
+    .npe-col-xs-2,
+    .npe-col-sm-2,
+    .npe-col-md-2,
+    .npe-col-lg-2,
+    .npe-col-xs-event-3,
+    .npe-col-sm-3,
+    .npe-col-md-3,
+    .npe-col-lg-3,
+    .npe-col-xs-event-4,
+    .npe-col-sm-4,
+    .npe-col-md-4,
+    .npe-col-lg-4,
+    .npe-col-xs-event-5,
+    .npe-col-sm-5,
+    .npe-col-md-5,
+    .npe-col-lg-5,
+    .npe-col-xs-6,
+    .npe-col-sm-6,
+    .npe-col-md-6,
+    .npe-col-lg-6,
+    .npe-col-xs-7,
+    .npe-col-sm-7,
+    .npe-col-md-7,
+    .npe-col-lg-7,
+    .npe-col-xs-8,
+    .npe-col-sm-8,
+    .npe-col-md-8,
+    .npe-col-lg-8,
+    .npe-col-xs-9,
+    .npe-col-sm-9,
+    .npe-col-md-9,
+    .npe-col-lg-9,
+    .npe-col-xs-10,
+    .npe-col-sm-10,
+    .npe-col-md-10,
+    .npe-col-lg-10,
+    .npe-col-xs-11,
+    .npe-col-sm-11,
+    .npe-col-md-11,
+    .npe-col-lg-11,
+    .npe-col-xs-12,
+    .npe-col-sm-12,
+    .npe-col-md-12,
+    .npe-col-lg-12 {
+      padding: 0;
+    }
+  }
+}
+
+/* get rid of layout borders at mobile */
+body {
+  .npe2-plugin-panel {
+    .sap-v {
+      @include responsive(12){
+        border-right: none;
+        border-bottom: none;
+      }
+      @include responsive(35){
+        padding-right: $stanPad;
+      }
+    }
+    .sap-v + div {
+      border-left: none;
+      margin-left: 0;
+      @include responsive(35){
+        padding-left: $stanPad;
+      }
+    }
+  }
+}
+
+/* EVENTS PAGE ----------------------------------- */
+
+body {
+  .npe2-plugin-panel {
+
+    // overriding fundly highlight override
+    *::selection,
+    *::-moz-selection {
+      background: #ff6460;
+    }
+
+    // the responsive layout at desktop
+    @include responsive(35){
+      .left-side-panel {
+        padding-right: $stanPad;
+      }
+      .right-panel-category-box {
+        padding-left: $stanPad;
+      }
+    }
+
+
+    // the whole content box
+    .common-content-box {
+      margin-top: 0;
+    }
+    #event-list-block {
+      padding-right: 0 !important;
+      padding-left: 0 !important;
+    }
+
+    // the page title
+    .common-box .title-box .h2-title #npe-event-list-title {
+      display: none;
+    }
+
+    // each block in the listing
+    .list-view ul {
+      li {
+        background: white;
+        border: 1px solid $gray-shadow;
+        border-bottom: 2px solid $gray-shadow;
+        margin-bottom: $stanPad;
+        padding: $stanPad;
+      }
+      // the month dividers (overrides some of the stuff above)
+      li.npeMonthYearTitle {
+        border: none;
+        margin: 0 0 ($stanPad * 2) 0;
+        margin: 0 0 2.5rem 0 !important;
+        padding: 0;
+        width: 100%;
+      }
+    }
+
+    // get rid of toggle for different views (we just want list view)
+    .view-changer {
+      display: none !important;
+    }
+
+  }
+}
+
+
+
+
+
+body .npe2-plugin-panel .list-view ul li .npeMonthYearTitle {
+  border-color: $charcoal;
+}
+
+/* the big ridiculous date */
+body .npe2-plugin-panel .list-view ul li .date-viewer {
+  background: none;
+  border-radius: 0;
+  font-style: italic;
+  padding: 0;
+}
+  /* the date and month */
+  body .npe2-plugin-panel .list-view ul li .date-viewer .date-box,
+  body .npe2-plugin-panel .list-view ul li .date-viewer .month-box {
+    color: $text-color;
+    font-size: 0.85rem;
+    text-align: left;
+    width: auto;
+  }
+  /* just the date */
+  body .npe2-plugin-panel .list-view ul li .date-viewer .date-box {
+    margin: 0 4px 0 0;
+  }
+
+/* the title area for each card in the listing */
+.npe2-plugin-panel .event-title-head {
+  padding: 0 !important;
+}
+
+  /* the title of each card in the listing */
+  body .npe2-plugin-panel .list-view ul li .sub-title {
+    transition: color $transDur;
+    color: $text-color;
+    font-size: 1.25rem;
+    line-height: 1.2;
+    margin: 0 0 0.15rem;
+  }
+
+  /* the time and date info on each card */
+  body .npe2-plugin-panel .list-view ul li .event-label-info {
+    color: $text-color;
+  }
+
+body .npe2-plugin-panel .list-view ul li a:hover {
+  .sub-title {
+    color: $cta;
+  }
+}
+
+body .npe2-plugin-panel .list-view ul li:hover {
+  background: white;
+}
+
+/* SINGLE-EVENT VIEW ----------------------- */
+
+body {
+  .npe2-plugin-panel {
+
+    // style the page title
+    .common-box .title-box .h2-title {
+      color: $text-color;
+      font-size: 1.75rem;
+      font-weight: 300;
+      line-height: 1.2;
+      margin-bottom: $stanPad;
+      @include responsive(35){
+    		font-size: 2.074em;
+    	}
+    }
+
+    .common-box .title-box .h5-title {
+      color: #4d4d56;
+      font-size: 1rem;
+      line-height: 1.5
+    }
+
+    // the form box
+    .bx-gray-bg {
+      background: none;
+      margin-top: $stanPad;
+      padding: 0;
+    }
+
+    // the white form boxes
+    #grand-total-main-block,
+    .inner-box-spacer {
+      padding: $stanPad;
+    }
+
+    // the Total box
+    #grand-total-main-block {
+      .npe-col-lg-3
+      .npe-col-lg-6,
+      .npe-col-sm-12,
+      .npe-col-xs-12 {
+        width: 100% !important;
+      }
+      .h5-title {
+        margin-bottom: 0.5rem;
+      }
+      .title-box {
+        margin-bottom: 0.5rem;
+        label {
+          float: left;
+          padding-top: 2px;
+        }
+        #npe-event-grand-total,
+        .event-detail-total-qty {
+          float: right;
+        }
+      }
+    }
+
+    .form-donate-panel {
+      .row-event {
+        > * {
+          float: left;
+          width: 33%;
+        }
+      }
+    }
+
+    .npe-event-widget-block {
+      padding-left: 27%;
+      padding-left: calc(25% + 0.5rem);
+      position: relative;
+      .npe-widget-date-box {
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 25%;
+      }
+      .npe-col-lg-9 {
+        width: 100% !important;
+      }
+    }
+
+    .footer-button-full-mobile {
+      margin-bottom: $stanPad;
+    }
+
+    .searchtag-box {
+      padding: $stanPad 0 !important;
+    }
+
+    .npe-search-tag-view:first-child {
+      margin-top: 0;
+    }
+  }
+}
+
+// THE DONATION PAGE
+body {
+  .fundly-donation-page {
+    // get rid of the page title
+    .page-header {
+      border: none;
+      clip: rect(1px, 1px, 1px, 1px);
+      height: 1px;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      width: 1px;
+    }
+    // the main part
+    .donation-info {
+      @include responsive(35){
+        float: left;
+        padding-right: $stanPad;
+      }
+      @include responsive(3){
+        width: 470px;
+      }
+      @include responsive(4){
+        width: 630px;
+      }
+      @include responsive(5){
+        width: 770px;
+      }
+    }
+    // the sidebar
+    .donation-funds {
+      @include responsive(35){
+        float: left;
+        padding-left: $stanPad;
+      }
+      @include responsive(3){
+        width: 230px;
+      }
+      @include responsive(4){
+        width: 310px;
+      }
+      @include responsive(5){
+        width: 378px;
+      }
+    }
+    .npe2-plugin-panel {
+      label b {
+        font-weight: normal !important;
+      }
+      #donationPageContent {
+        .form-donate-panel {
+          .row-event {
+            > * {
+              float: none;
+              width: 100%;
+            }
+          }
+        }
+      }
+      .recurring-donation-block {
+        @include responsive(35){
+          padding-left: $stanPad;
+        }
+      }
+      .bg-asset-panel {
+        border-top: 2px solid #e5e5e5;
+        margin-top: 0;
+        padding: 1rem 0;
+      }
+      .asset-t {
+        padding-right: 2%;
+        padding-left: 0;
+      }
+      .donate-donation-block {
+        margin-bottom: 0.5rem;
+        padding: 0.5rem 0;
+        &.active {
+          padding: 0 0.5rem;
+          .amount {
+            top: 0;
+          }
+        }
+        h3 {
+          display: none;
+        }
+        span.amount {
+          display: inline-block;
+          font-size: 1rem;
+          padding: 0.5rem 0;
+        }
+      }
+    }
+  }
+}
+
+.pg-cert-application {
+  .title-box {
+    display: none;
+  }
+  .npe-membership-title span.ng-binding,
+  .membership-view-header span {
+    display: none;
+  }
+}

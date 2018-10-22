@@ -1,0 +1,189 @@
+.grid-mosaic {
+  background-color: $primary;
+  -webkit-backface-visibility: hidden;
+  // background-blend-mode: luminosity;
+  // background-attachment: fixed;
+  background-image: url($imgs + "backgrounds/staalmeesters.jpg");
+  background-position: 50% 0;
+  background-size: 180% auto;
+  margin-top: 0;
+  margin-right: -4px; // matches .inner inset at this size
+  margin-bottom: 0;
+  margin-left: -4px; // matches .inner inset at this size
+  position: relative;
+  /*&:before {
+    background-color: red;
+    background-image: url($imgs + "backgrounds/staalmeesters.jpg");
+    content: '';
+    display: block;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }*/
+  /*&:before {
+    background-image: url($imgs + "diagonal.svg");
+    content: '';
+    display: block;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }*/
+  @include responsive(25){
+    background-size: 110% auto;
+    margin-right: -5px; // matches .grid-mosaic right and left negative margin at this size
+    margin-left: -5px; // matches .grid-mosaic right and left negative margin at this size
+  }
+  @include responsive(35){
+    background-position: 50% auto;
+    background-size: 135% auto;
+    margin-bottom: 5px; // same as .inner inset at this size
+  }
+  @include responsive(45){
+    background-position: 50% 75%;
+    background-size: 110% auto;
+    margin-right: -8px; // matches .grid-mosaic right and left negative margin at this size
+    margin-left: -8px; // matches .grid-mosaic right and left negative margin at this size
+    margin-bottom: 8px; //same as .inner inset at this size
+  }
+}
+
+.grid-mosaic-block {
+  // background-color: $primary;
+  // mix-blend-mode: color;
+  // box-shadow: 0 0 0 4px $gray inset;
+  display: block;
+  float: left;
+  width: 50%;
+  position: relative;
+  &:before {
+    // background-color: rgba($primary,0.5);
+    @include transition(opacity ($transDur * 4));
+    // background-color: $primary;
+    // mix-blend-mode: color;
+    // background-image: url($imgs + "diagonal.svg");
+    content: '';
+    display: block;
+    height: 100%;
+    left: 0;
+    opacity: 1;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+  &.block-7,
+  &.block-8,
+  &.block-9,
+  &.block-10,
+  &.block-11,
+  &.block-12 {
+    display: none;
+  }
+  .inner {
+    // background-color: $primary;
+    @include transition(background-image ($transDur * 4));
+    background-image: url($imgs + "diagonal.svg");
+    // mix-blend-mode: color;
+    // box-shadow: 0 0 0 4px $gray inset;
+    color: rgba(0,0,0,0);
+    color: transparent;
+    display: block;
+    height: 0;
+    padding: 35% 50%;
+    position: relative;
+    width: 0;
+    &:before {
+      // background-color: rgba($primary,0.5);
+      // background-image: url($imgs + "diagonal.svg");
+      box-shadow: 0 0 0 4px $gray inset;
+      content: '';
+      display: block;
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+    }
+  }
+  &:hover {
+    /*&:before {
+      @include transition(opacity ($transDur * 4));
+      opacity: 0;
+    }*/
+    .inner {
+      @include transition(background-image ($transDur * 4));
+      background-image: none;
+    }
+  }
+  @include responsive(25){
+    width: 33.333333%;
+    &.block-7,
+    &.block-8,
+    &.block-9 {
+      display: block;
+    }
+    .inner:before {
+      box-shadow: 0 0 0 5px $gray inset;
+    }
+  }
+  @include responsive(35){
+    &.block-10,
+    &.block-11,
+    &.block-12 {
+      display: block;
+    }
+    &.block-11,
+    &.block-12 {
+      background: $gray;
+      position: relative;
+    }
+  }
+  @include responsive(45){
+    width: 25%;
+    &.block-10 {
+      background: $gray;
+      position: relative;
+    }
+    .inner:before {
+      box-shadow: 0 0 0 8px $gray inset;
+    }
+  }
+  @include responsive(5){
+    .inner {
+      padding: 40% 50%;
+    }
+  }
+}
+
+@supports (mix-blend-mode: color) {
+  .grid-mosaic-block:before {
+    @include transition(opacity ($transDur * 4));
+    background-color: $primary;
+    mix-blend-mode: color;
+    content: '';
+    display: block;
+    height: 100%;
+    left: 0;
+    opacity: 1;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+  .grid-mosaic-block:hover {
+    &:before {
+      @include transition(opacity ($transDur * 4));
+      opacity: 0;
+    }
+  }
+}
+
+.no-touch {
+  @include responsive(35){
+    .grid-mosaic {
+      background-attachment: fixed;
+    }
+  }
+}

@@ -1,0 +1,409 @@
+$root:          "/";
+$themeDir:      $root + "wp-content/themes/focus/";
+$imgs:        $themeDir + "library/images/";
+$stanPad: 			1.25rem;
+$stanMarge:			0 0 1.3em 0;
+$transDur: 			0.25s;
+$lineHeight: 		$stanPad;
+$iconOverlaySize: 4rem;
+$iconOverlaySizeExpanded: 4.5rem;
+
+@import "base/normalize";
+
+// Sass variables
+@import "base/color";
+
+// typography
+@import "base/typography";
+
+// Sass functions
+@import "base/functions";
+
+// import mixins
+@import "base/mixins";
+
+// mobile breakpoints
+@import "base/breakpoints";
+
+// the grid
+@import "base/grid";
+
+// grid-style presentations
+@import "base/flexbox";
+
+// forms (inputs & labels)
+@import "components/forms";
+
+// lightbox
+@import "plugins/screenfull";
+
+// fundly's event and newsletter plugin
+// @import "plugins/fundly";
+
+
+/* ==================
+GENERAL STYLES
+===================== */
+
+html {
+	font-size: 1em;
+	@include responsive(4){
+		font-size: 1.125em;
+		font-size: 1.1em;
+	}
+	@include responsive(5){
+		font-size: 1.2em;
+		font-size: 1.125em;
+	}
+}
+
+body {
+	font-family: $sans-serif;
+	font-size: 100%;
+	line-height: 1.45;
+	color: $text-color;
+	background-color: white;
+  	-webkit-font-smoothing: antialiased;
+  	-moz-osx-font-smoothing: grayscale;
+}
+
+p {
+	line-height: 1.5em;
+	margin: $stanMarge;
+}
+
+img {
+	display: block;
+	height: auto;
+	max-width: 100%;
+}
+
+@mixin content-ul {
+	margin: $stanMarge;
+	padding-left: 1rem;
+	li {
+		margin-bottom: 0.2rem;
+		list-style: disc;
+	}
+}
+
+@mixin content-ol {
+	margin: $stanMarge;
+	padding-left: 1rem;
+	li {
+		margin-bottom: 0.2rem;
+		list-style: decimal;
+	}
+}
+
+dl {
+	margin: 0;
+	dt {
+		font-weight: 300;
+	}
+	dd {
+		font-weight: 500;
+		margin-bottom: 0.5rem;
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+
+// highlight colors
+::selection {
+  background: $cta;
+	color: white;
+}
+::-moz-selection {
+  background: $cta;
+	color: white;
+}
+
+// general content space and padding
+.site-content-space {
+	background: $gray;
+	padding: 1.75rem 0;
+	section {
+		padding: $stanPad 0;
+	}
+	main, article {
+		p:last-child {
+			margin-bottom: 0;
+		}
+	}
+	section:first-child {
+		padding-top: 0;
+	}
+	section:last-child {
+		padding-bottom: 0;
+	}
+	section.sole-section {
+		padding: 0 0 $stanPad 0 !important;
+	}
+	@include responsive(35){
+		padding: ($stanPad * 3) 0;
+		section {
+			padding: ($stanPad * 3) 0;
+		}
+		section:first-child {
+			padding-top: 0;
+		}
+		section:last-child {
+			padding-bottom: 0;
+		}
+		section.sole-section {
+			padding: 0 0 ($stanPad * 3) 0 !important;
+		}
+	}
+}
+
+section.white-stripes {
+	background-color: white;
+	background-image: url($imgs + "diagonal-15.png");
+	padding-bottom: $stanPad !important;
+	@include responsive(35){
+		padding: ($stanPad * 3) 0 !important;
+	}
+}
+
+body.stripey-bottom {
+	.site-content-space {
+		padding-bottom: 0 !important;
+	}
+}
+
+/* ==================
+LINK STYLES
+===================== */
+
+a, a:visited {
+	color: $link-color;
+	&:link {
+		-webkit-tap-highlight-color : rgba( 0, 0, 0, 0.3 );
+	}
+}
+
+a.button {
+	background: $coral;
+	color: white;
+	display: inline-block;
+	padding: 0.5rem;
+	text-decoration: none;
+}
+
+/* ==========================
+H1, H2, H3, H4, H5 STYLES
+============================= */
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+	font-weight: 300;
+	line-height: 1.25;
+	line-height: 1.2;
+	margin: 0;
+	margin: 1.414em 0 0.5em;
+	text-rendering: optimizelegibility;
+	a {
+		text-decoration: none;
+	}
+}
+
+.page-title {
+	font-size: 1.75rem;
+	margin-top: 0;
+	margin-bottom: 0;
+	@include responsive(35){
+		font-size: 2.15em;
+		font-size: 2.074em;
+	}
+}
+
+.page-internal-header,
+.section-title,
+.entry-content h2,
+.entry-content h3,
+.entry-content h4,
+.entry-content h5,
+.entry-content h6 {
+	font-size: 1.5rem;
+	font-size: 1.953em;
+	font-size: 1.7rem;
+	margin: $stanMarge;
+}
+
+.section-header {
+	margin-bottom: $stanPad;
+	position: relative;
+	.section-title {
+		margin-bottom: 0;
+	}
+	@include clearfix;
+	.internal-back-link {
+		@include responsive(25){
+			float: right;
+			margin-top: 10px;
+		}
+	}
+}
+
+.internal-back-link {
+	font-style: italic;
+	line-height: 1;
+	text-decoration: none;
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+.section-subtitle {
+	font-size: 1.2rem;
+	font-size: 1.563em;
+	font-size: 1.25rem;
+	margin: $stanMarge;
+}
+
+.entry-content {
+	h2, h3, h4, h5, h6 {
+		margin: 1.3rem 0;
+	}
+	h3, h4, h5, h6 {
+		font-size: 1.35rem;
+	}
+	h4 {
+		font-size: 1rem;
+		font-weight: 500;
+	}
+}
+
+/* ==================
+MAJOR COMPONENTS
+===================== */
+
+@import "components/header";
+@import "components/footer";
+@import "components/tables";
+@import "components/cards";
+@import "components/internal-page-nav";
+@import "components/grid-slider";
+@import "components/grid-mosaic";
+@import "components/our-mission";
+@import "components/feature-stripe";
+@import "components/by-the-numbers";
+@import "components/opportunities-banner";
+@import "components/video-banner";
+@import "components/page-navi";
+@import "components/faqs";
+@import "components/dig-deeper";
+
+
+/* =====================
+POSTS & CONTENT STYLES
+======================== */
+@import "partials/post-page.scss";
+@import "components/widgets";
+
+
+/* ============================
+SPECIFIC TO CERTAIN LAYOUTS
+=============================== */
+@import "layouts/clear-hero";
+@import "layouts/page-with-grid-mosaic-top";
+@import "layouts/sticky-menu-page.scss";
+
+
+/* ============================
+SPECIFIC TO CERTAIN TEMPLATES
+=============================== */
+@import "templates/archive";
+@import "templates/single-lesson-image";
+@import "templates/single-curriculum";
+@import "templates/archive-curriculum";
+@import "templates/single-person";
+@import "templates/single-product";
+@import "templates/single-blog";
+
+
+/* ===========================
+SPECIFIC TO CERTAIN PAGES
+============================== */
+@import "pages/home";
+@import "pages/research";
+@import "pages/shop";
+@import "pages/aesthetic";
+@import "pages/dashboard";
+@import "pages/student-thinking";
+@import "pages/training";
+@import "pages/oss";
+@import "pages/highlighted-projects";
+@import "pages/services";
+@import "pages/founders";
+@import "pages/certification";
+@import "pages/site-specific";
+@import "pages/offerings";
+@import "pages/philip-faqs";
+
+
+/* =========================
+PLUGINS
+============================ */
+@import "plugins/woocommerce";
+@import "plugins/woocommerce-account";
+@import "plugins/lightbox";
+
+
+/* ===============
+FAQ PAGE CHUNKS
+================== */
+.faq-step {
+	@include clearfix;
+	@include responsive(35){
+		border-bottom: 1px solid $gray;
+		margin-bottom: $stanPad;
+		padding-bottom: $stanPad;
+		&:last-child {
+			border-bottom: none;
+			margin-bottom: 0;
+			padding-bottom: 0;
+		}
+		.text-space {
+			float: left;
+			padding-right: $stanPad;
+			width: 66.67%;
+		}
+		.image-space {
+			float: right;
+			padding-left: $stanPad;
+			width: 33.33%;
+		}
+	}
+}
+
+/* ========================================
+RETINA (2x RESOLUTION DEVICES)
+=================================================================== */
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+       only screen and (min--moz-device-pixel-ratio: 1.5),
+       only screen and (min-device-pixel-ratio: 1.5) {
+	// styles in 2x.scss
+	@import "breakpoints/2x";
+}
+
+
+/* ======================
+PRINT STYLESHEET
+======================== */
+@media print {
+	// styles in print.scss
+	@import "base/print";
+}
+
+.temporary-launch-banner {
+	background: darken($primary,15%);
+	color: white;
+	font-size: 0.95rem;
+	padding-top: 1.25rem;
+	a {
+		color: white;
+		font-style: italic;
+	}
+}

@@ -1,0 +1,97 @@
+.shop-page-subscriptions {
+  .page-header {
+    @include accessible-hide;
+  }
+  h2 {
+    margin-top: 0;
+  }
+  .main {
+    ul {
+      @include content-ul;
+    }
+  }
+  aside img {
+    margin-bottom: $stanPad;
+    @include responsive(45){
+      margin-bottom: 0;
+    }
+  }
+  .subscription-options {
+    h3 {
+      margin-top: 0;
+    }
+  }
+  .add_to_cart_inline {
+    border: none !important;
+    padding: 0 !important;
+  }
+}
+
+.subscription-options-section {
+  // background: $cta;
+  background: $primary;
+  padding-bottom: $stanPad !important;
+  @include responsive(35){
+    padding-bottom: ($stanPad * 3) !important;
+  }
+  .section-subheader {
+    // color: white;
+    margin-top: 0;
+  }
+  .card-set-item {
+    // border-color: $coral-dark;
+    border-color: darken($primary,10%);
+  }
+}
+
+.shop-page-other-products-intro {
+  img {
+    margin-bottom: $stanPad;
+    @include responsive(35){
+      float: right;
+      margin-bottom: 0;
+      margin-left: $stanPad;
+      width: 66.67%;
+      width: calc(66.67% - ($stanPad / 2));
+      width: calc(66.67% - 0.35rem);
+    }
+    @include responsive(3){
+      margin-bottom: $stanPad;
+    }
+  }
+  @include responsive(5){
+    margin-bottom: $stanPad;
+  }
+}
+
+// the VIEW CART link that appears once you've added something
+.woocommerce {
+  a.added_to_cart {
+    color: $cta;
+    font-size: 0.85rem;
+    margin-top: 1rem;
+    padding: 0;
+    text-align: right;
+    &:hover {
+      color: $cta !important;
+      text-decoration: underline;
+    }
+  }
+}
+// the little check mark that appears after adding something to the cart
+.woocommerce {
+  #respond input#submit.added::after,
+  a.button.added::after,
+  button.button.added::after,
+  input.button.added::after {
+    top: 0.5rem;
+    @include responsive(45){
+      color: $cta;
+      left: -1.5rem;
+      margin-left: 0;
+      position: absolute;
+      top: 8px;
+      width: 1rem;
+    }
+  }
+}

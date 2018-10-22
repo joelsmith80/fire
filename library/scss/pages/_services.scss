@@ -1,0 +1,10 @@
+.services-page {
+  .page-header {
+    @include responsive(35){
+      padding-right: 25%;
+    }
+  }
+  p.experimental-disclaimer {
+    margin-top: $stanPad;
+  }
+}

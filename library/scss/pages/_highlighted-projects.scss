@@ -1,0 +1,16 @@
+.highlighted-projects-page {
+  .intro.region ul,
+  .card ul {
+    @include content-ul;
+    margin-top: 1rem;
+  }
+  .card a {
+    color: $cta;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  .card-set-item:last-child {
+    margin-bottom: 0;
+  }
+}

@@ -1,0 +1,148 @@
+.dashboard {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.dashboard-welcome {
+  padding-top: $stanPad !important;
+  .page-header {
+    margin-bottom: 0;
+  }
+  @include responsive(45){
+    padding-top: ($stanPad * 3) !important;
+    .region {
+      padding-right: 25%;
+    }
+  }
+}
+
+.dashboard-image-sets-section {
+  h2 a {
+    color: $text-color;
+    &:hover {
+      color: $cta;
+      text-decoration: underline;
+    }
+  }
+}
+
+.dashboard-curriculum-nav {
+  line-height: 1;
+  // margin-top: -2rem;
+  li {
+    display: inline-block;
+  }
+}
+
+.dashboard-tools-section {
+  margin-top: $stanPad;
+  @include responsive(35){
+    margin-top: 0;
+    .section-header {
+      margin-bottom: 3.25rem;
+    }
+  }
+}
+  .dashboard-toolset {
+    .card:hover {
+      a {
+        color: $cta;
+      }
+    }
+  }
+    .tool ul {
+      margin: 0;
+    }
+    .reflection.tool {
+      li {
+        a {
+          display: block;
+          padding-left: 1.5rem;
+          position: relative;
+          text-decoration: none;
+          &:hover {
+            text-decoration: underline;
+          }
+          &:before {
+            background-image: url($imgs + "icons/download-coral.png");
+            background-size: 100%;
+            content: "";
+            display: block;
+            height: 1rem;
+            left: 0;
+            position: absolute;
+            top: 0.2rem;
+            width: 0.85rem;
+          }
+        }
+      }
+    }
+
+.dashboard-further-section {
+  background: $secondary;
+  color: white;
+  padding-bottom: $stanPad !important;
+  position: relative;
+  &:after {
+    background-image: url($imgs + "magnifying-flipped.png");
+    background-position: 2rem 0;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 200px;
+    opacity: 0.15;
+    position: absolute;
+    right: 0;
+    width: 200px;
+  }
+  .region {
+    position: relative;
+    z-index: 1000;
+  }
+  a {
+    color: white;
+    &:hover {
+      border-bottom: 1px solid white;
+    }
+  }
+  ul {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  h3 {
+    font-size: 1.25rem;
+    font-weight: 500;
+  }
+  @include responsive(35){
+    padding-bottom: ($stanPad * 3) !important;
+    &:after {
+      height: 300px;
+      width: 300px;
+    }
+    .region {
+      padding-right: 33.33%;
+    }
+  }
+  @include responsive(45){
+    &:after {
+      height: 400px;
+      width: 400px;
+    }
+  }
+  @include responsive(5){
+    &:after {
+      height: 500px;
+      width: 500px;
+    }
+  }
+}
+
+// the region containing the not-allowed message
+.dashboard-not-allowed {
+  padding: $stanPad 0;
+  @include responsive(35){
+    padding: ($stanPad * 6) 0;
+  }
+}

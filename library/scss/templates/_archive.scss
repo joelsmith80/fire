@@ -1,0 +1,12 @@
+.archive-header {
+  @include responsive(35){
+    p {
+      max-width: 75%;
+    }
+  }
+  @include responsive(5){
+    p {
+      max-width: 66.67%;
+    }
+  }
+}

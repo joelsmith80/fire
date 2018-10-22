@@ -1,0 +1,389 @@
+// make the login and register forms more card-like
+.woocommerce form.checkout_coupon,
+.woocommerce form.login,
+.woocommerce form.register {
+  background-color: white;
+  border-radius: 0;
+  border-color: $gray-shadow;
+  border-bottom: 2px solid $gray-shadow;
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    background: $gray;
+    border: 1px solid $gray-shadow;
+  }
+}
+
+// fix the layout proportions
+.woocommerce-account {
+  .my-account-content-section .woocommerce {
+    display: flex;
+    flex-wrap: wrap;
+    .woocommerce-message {
+      width: 100%;
+    }
+  }
+  .woocommerce-MyAccount-navigation,
+  .woocommerce-MyAccount-content {
+    @include responsive(35){
+      width: 100%;
+    }
+  }
+  .woocommerce-MyAccount-navigation {
+    @include responsive(45){
+      border-top: 1px solid darken($gray-shadow,4%);
+      padding-top: ($stanPad * 1.5);
+      padding-top: 0;
+      padding-right: ($stanPad * 1.5);
+      padding-right: 0;
+      width: 15%;
+    }
+  }
+  .woocommerce-MyAccount-content {
+    @include responsive(45){
+      border-top: 1px solid darken($gray-shadow,4%);
+      border-left: 1px solid darken($gray-shadow,4%);
+      padding-top: ($stanPad * 1.5);
+      padding-left: ($stanPad * 1.5);
+      width: 85%;
+    }
+  }
+}
+
+// swing the internal nav over at wider desktops
+.my-account-content-section {
+  .internal-page-nav {
+    margin-bottom: $stanPad;
+    li.is-active a {
+      font-style: italic;
+    }
+  }
+  @include responsive(45){
+    .woocommerce {
+      display: flex;
+    }
+    .internal-page-nav {
+      font-size: 1.1rem;
+      font-size: 1rem;
+      margin-bottom: 0;
+      text-align: right;
+      li {
+        border-bottom: 1px solid darken($gray-shadow,4%);
+        padding: 0 1rem 0.5rem 0;
+      }
+      li:first-child {
+        padding-top: 0.5rem;
+      }
+      li:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+    }
+  }
+}
+
+.woocommerce-lost-password {
+  .my-account-content-section {
+    .woocommerce {
+      display: block;
+    }
+  }
+}
+
+// the login page
+#customer_login {
+  h2 {
+    margin: 0;
+  }
+}
+.woocommerce form.checkout_coupon,
+.woocommerce form.login,
+.woocommerce form.register {
+  margin-top: 1rem;
+  p.form-row {
+    margin: 0 0 0.5rem 0;
+  }
+  input[type="submit"]{
+    float: right;
+  }
+  label[for="rememberme"]{
+    display: block;
+    margin-top: 0.5rem;
+  }
+  input[type="checkbox"]{
+    display: inline;
+  }
+}
+
+// put the space between the forms on the bottom of the first one (instead
+// of at the top of the second one), so that when we toggle back and forth
+// the forms won't bob up and down
+.woocommerce .col2-set {
+  @include responsive(12){
+    .col-1 {
+      margin-bottom: ($stanPad * 3);
+    }
+    .col-2 {
+      margin-top: 0;
+    }
+  }
+}
+
+// basic styles for options below each form
+.auth-form-footnotes {
+  p {
+    font-size: 1rem;
+    font-weight: 300;
+    a, span {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: normal;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  }
+  @include responsive(35){
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      a, span {
+        font-size: 1rem;
+      }
+    }
+  }
+}
+
+// trim up space below each form
+.login-form-area,
+.register-form-area {
+  form {
+    margin-bottom: 1rem !important;
+  }
+}
+
+// on the login form, send the Remember Me prompt over to the left
+.login-form-area {
+  .woocommerce-form__label-for-checkbox {
+    float: left;
+  }
+}
+
+
+
+// layout changes for login and register forms at desktop
+.woocommerce #customer_login {
+  @include responsive(35){
+    .col-1,
+    .col-2 {
+      @include clearfix;
+      float: none;
+      margin-bottom: $stanPad;
+      width: 100%;
+      h2 {
+        width: 50%;
+      }
+      form {
+        float: left;
+        margin-right: $stanPad;
+        width: 50%;
+      }
+    }
+    .col-2 {
+      border-top: 1px solid darken($gray-shadow,4%);
+      margin-top: ($stanPad * 3);
+      padding-top: ($stanPad * 3);
+    }
+    .auth-form-footnotes {
+      margin-top: $stanPad;
+    }
+  }
+}
+
+// js-enabled enhancements
+.login-form-area,
+.register-form-area {
+  h2 {
+    position: relative;
+  }
+  a.js-toggle-login-forms {
+    color: $text-color;
+    display: none;
+    font-size: 0.75rem;
+    margin-left: 0.25rem;
+    &:hover {
+      color: $cta;
+      text-decoration: underline;
+    }
+  }
+}
+.js {
+  .login-form-area,
+  .register-form-area {
+    a.js-toggle-login-forms {
+      display: inline-block; // let's show these now that there's js
+    }
+  }
+  @include responsive(35){
+    .woocommerce #customer_login .col-2 {
+      border-top: none;
+      margin-top: 0;
+      padding-top: 0;
+    }
+  }
+}
+
+// the payment methods on the checkout page
+#add_payment_method,
+.woocommerce-cart,
+.woocommerce-checkout {
+  #payment {
+    ul.payment_methods {
+      li {
+        input[type="radio"],
+        label {
+          display: inline;
+        }
+      }
+    }
+  }
+}
+
+// the 'welcome' message we show to users who have just
+// successfully redeemed a group subscription
+// (we can also use the focus-wc-notification for any little
+// message we want to send via the theme)
+p.sponsored-member-welcome,
+p.focus-wc-notification {
+  background: white;
+  border-left: 3px solid $green;
+  font-size: 0.85rem;
+  margin-bottom: 1.3rem !important;
+  padding: ($stanPad / 2) $stanPad;
+}
+
+p.checkout-tax-exempt-notification {
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+// hide the action buttons in the My Memberships table
+.my_account_memberships {
+  .membership-actions {
+    display: none !important;
+  }
+}
+
+.group-sub-login-help {
+  background: $green;
+  display: none;
+  margin-bottom: -1.75rem;
+  padding-bottom: 1.75rem;
+  position: relative;
+  &:before,
+  &:after {
+    background: $green;
+    content: '';
+    display: block;
+    height: 100%;
+    left: -100%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+  &:after {
+    left: 100%;
+  }
+  a {
+    color: $text-color;
+    &:hover {
+      color: $text-color;
+    }
+  }
+  .intro {
+    .title {
+      font-size: 1.5rem;
+      line-height: 1.25;
+    }
+    a {
+      @include linkUnderlines($green, $text-color);
+    }
+  }
+  .list {
+    margin-bottom: ($stanPad * 2);
+    text-align: center;
+    .step-item {
+      margin-top: $stanPad;
+      position: relative;
+      &:before {
+        @include rounded(50%);
+        background: white;
+        color: $green;
+        content: '1';
+        display: inline-block;
+        font-size: 1.5rem;
+        font-weight: 700;
+        line-height: 1.35;
+        height: 2rem;
+        position: relative;
+        width: 2rem;
+      }
+    }
+    .step-2.step-item:before {
+      content: '2';
+    }
+    .step-3.step-item:before {
+      content: '3';
+    }
+    .title {
+      font-weight: 700;
+      margin-top: 1rem;
+    }
+  }
+  p.help {
+    text-align: center;
+    a {
+      @include linkUnderlines($green, $text-color);
+    }
+  }
+  @include responsive(35){
+    margin-top: ($stanPad * 1.5);
+    margin-bottom: -($stanPad * 3);
+    padding-bottom: ($stanPad * 3);
+    .list {
+      .step-item {
+        margin-top: ($stanPad * 2);
+      }
+    }
+    p.help {
+      text-align: left;
+    }
+  }
+}
+
+.woocommerce-message {
+  &.group-redemption-inquiry {
+    border-bottom: none;
+    border-left: 3px solid darken($green,10%);
+  }
+}
+
+.login-failed.woocommerce-account {
+  #content {
+    overflow: hidden;
+  }
+  .group-sub-login-help {
+    display: block;
+  }
+}
+
+p.instructions-for-delayed-activations {
+  margin-bottom: 1.3rem !important;
+}
+
+// shrink the gdpr privacy fine print on the My Account login page and elsewhere
+.woocommerce-privacy-policy-text {
+  font-size: 0.8rem;
+  margin-top: 1rem;
+}

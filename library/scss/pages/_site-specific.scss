@@ -1,0 +1,126 @@
+.pg-site-specific {
+
+  .page-subtitle {
+    // margin: 0.5rem 0 0 0;
+    font-style: italic;
+    font-weight: 300;
+    margin: 0;
+  }
+
+  .latest-edition {
+    padding-top: $stanPad !important;
+    padding-bottom: 0 !important;
+    .section-header {
+      @include accessible-hide;
+    }
+    .article {
+      background: white;
+      position: relative;
+    }
+  }
+
+  // at mobile, we cut off the intro and present a read-more link
+  .ed-note {
+    margin-bottom: $stanPad;
+    > div {
+      font-weight: 300;
+      max-height: 200px;
+      overflow: hidden;
+      position: relative;
+      &:before {
+        background: linear-gradient(transparent 75%, $gray 100%);
+        background-image: -webkit-gradient(linear, left top, left bottom, from(transparent), to($gray));
+      	background-image: -webkit-linear-gradient(top, transparent, $gray);
+      	background-image: -moz-linear-gradient(top, transparent, $gray);
+      	background-image: -o-linear-gradient(top, transparent, $gray);
+      	background-image: linear-gradient(to bottom, transparent 75%, $gray);
+        content: '';
+        display: block;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+      }
+      p:first-child:first-letter {
+        float: left;
+        font-size: 3rem;
+        line-height: 3rem;
+        padding: 0.25rem 0.25rem 0.5rem 0;
+        font-weight: 500;
+      }
+    }
+  }
+    .read-more-ed-note {
+      display: block;
+      margin-top: 0.5rem;
+      text-align: right;
+    }
+    .ed-note-title {
+      margin: 0 0 0.5rem 0;
+    }
+
+  .previous-articles {
+    .section-header.hide {
+      @include accessible-hide;
+    }
+  }
+
+  // ----------------------------------
+  // THE DESKTOP RESPONSE
+  // ----------------------------------
+
+  @include responsive(2){
+
+    // at this intermediate size (when there's only one latest article), we'll split the top space in half, vertically
+    .latest-edition {
+      &.count-1 {
+        .ed-note,
+        .articles {
+          float: left;
+          width: 50%;
+        }
+        .ed-note {
+          padding-right: ($stanPad / 2);
+          > div {
+            max-height: 450px;
+          }
+        }
+        .articles {
+          padding-left: ($stanPad / 2);
+        }
+      }
+    }
+
+  }
+
+
+  @include responsive(35){
+
+    // do away with the shortening/read more approach to the intro
+    .ed-note {
+      margin-bottom: 0;
+      > div {
+        max-height: none;
+        overflow: visible;
+        &:before {
+          content: none;
+        }
+      }
+    }
+      .read-more-ed-note {
+        display: none;
+      }
+
+    // when there's only one article in the latest edition, we'll present the intro as two columns, to save space
+    .latest-edition {
+      &.count-1 {
+        .ed-note {
+          @include columns(2);
+          padding-right: 0;
+        }
+      }
+    }
+  }
+
+}

@@ -1,0 +1,142 @@
+.single-product-image-space {
+  margin-bottom: $stanPad;
+  @include responsive(35){
+    margin-bottom: 0;
+  }
+}
+
+.single-product-text-space {
+  ul {
+    @include content-ul;
+  }
+  ins {
+    margin-left: 0.25rem;
+    text-decoration: none;
+  }
+}
+
+.single-product {
+  p.price {
+    .from {
+      display: none;
+    }
+  }
+  table.variations {
+    display: block;
+    margin-bottom: $stanPad;
+    margin-bottom: 0;
+    width: 100%;
+    tbody {
+      display: block;
+      width: 100%;
+    }
+    tr {
+      display: block;
+      width: 100%;
+    }
+    td {
+      display: inline-block;
+      &.label {
+        margin-right: 1rem;
+        padding-bottom: 1.5rem;
+        padding-bottom: 0;
+        width: 3rem;
+      }
+      &.value {
+        width: 75%;
+        width: calc(100% - 4.3rem);
+        width: 50%;
+      }
+    }
+    a.reset_variations {
+      color: lighten($text-color,20%);
+      display: inline-block;
+      display: none;
+      font-size: 0.9rem;
+      font-style: italic;
+      margin-top: 5px;
+      text-decoration: none;
+      &:hover {
+        color: $cta;
+        text-decoration: underline;
+      }
+    }
+    // don't show the In Stock message
+    // on individual pages for physical products
+    .in-stock {
+      display: none;
+    }
+  }
+  // woocommerce prompts users to earn a discount
+  // by becoming a member, but it's not that simple,
+  // in our case. so let's hide the prompt.
+  .wc-memberships-member-discount-message {
+    display: none;
+  }
+  // restyle the obnoxious 'member discount' 
+  // message that WC wants to throw above
+  // the discounted price for members
+  span.onsale {
+    background: none;
+    color: $text-color;
+    display: block;
+    font-weight: normal;
+    font-style: italic;
+    left: auto;
+    line-height: 1.75rem;
+    margin: $stanPad 0 0 0;
+    min-height: auto;
+    padding: 0;
+    position: relative;
+    text-align: left;
+    @include responsive(45){
+      float: left;
+      margin: 0;
+      padding-left: ($stanPad / 2);
+    }
+  }
+  .quantity {
+    position: relative;
+    &:before {
+      content: "Quantity";
+      display: inline-block;
+      font-weight: 300;
+      margin-right: 1rem;
+      width: 3rem;
+    }
+    input.qty {
+      display: inline-block;
+      text-align: left;
+      width: 75%;
+      width: calc(100% - 4.3rem);
+      width: 50%;
+    }
+  }
+  .quantity.hidden {
+    display: none;
+    &:before {
+      content: none;
+    }
+  }
+  .woocommerce-variation-price {
+    display: none;
+  }
+  .single_add_to_cart_button {
+    background: $cta !important;
+    margin-top: $stanPad !important;
+  }
+}
+
+@include responsive(45){
+  .single-product-image-space,
+  .single-product-text-space {
+    float: left;
+    width: 50%;
+  }
+  .single-product-image-space {
+    padding-right: ($stanPad / 2);
+  }
+  .single-product-text-space {
+    padding-left: ($stanPad / 2);
+  }
+}

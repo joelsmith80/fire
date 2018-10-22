@@ -1,0 +1,238 @@
+/* GENERAL FOOTER STYLES ------------------------ */
+
+.site-footer {
+	background: $charcoal;
+  color: $gray;
+	position: relative;
+	&:before {
+		background-image: url($imgs + "diagonal.svg");
+		content: '';
+		display: block;
+		height: 100%;
+		left: 0;
+		opacity: 0.1;
+		position: absolute;
+		top: 0;
+		width: 100%;
+	}
+	.wrap {
+		padding-right: $stanPad;
+		padding-left: $stanPad;
+		@include responsive(35){
+			padding-right: 0;
+			padding-left: 0;
+		}
+	}
+	> * {
+		position: relative;
+	}
+	a {
+		color: $gray;
+		text-decoration: none;
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}
+
+/* THE CALL-TO-ACTION STRIP ------------------------ */
+
+.site-footer-cta-strip {
+	background: $cta;
+	// padding: 1em 0;
+  a {
+    color: $charcoal;
+		display: block;
+    float: right;
+		line-height: 1;
+		padding: 1rem 0 0.8rem 1rem; // same as links in main Account nav
+  }
+}
+
+/* THE MAIN FOOTER GRID ------------------------ */
+
+.site-footer-grid-wrap {
+	@include responsive(35){
+    padding: 2.5em 0 !important; // tktk: make sure this matches section padding
+	}
+}
+
+.site-footer-grid-box {
+	background: lighten($charcoal, 2%);
+	border-bottom: 2px solid darken($charcoal,2%);
+	font-size: 1rem;
+	margin: 0 ($stanPad / 2) $stanPad ($stanPad / 2);
+	padding: $stanPad $stanPad ($stanPad * 1.5) $stanPad;
+	width: 100%;
+  ul {
+		margin: 0;
+	}
+	li {
+		line-height: 1.3;
+		margin-bottom: 0.25em;
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+  .site-footer-grid-box-title {
+    font-size: 1.25em;
+    font-weight: 500;
+    font-weight: 300;
+    margin: 0 0 ($stanPad / 2) 0;
+  }
+  .footer-social-links li {
+    a {
+      display: block;
+  		padding-left: 1.5rem;
+  		position: relative;
+  		&:before {
+  			background-image: url($imgs + "icons/facebook-white.png");
+  			background-repeat: no-repeat;
+  			background-position: center;
+  			background-size: 1rem;
+  			content: '';
+  			display: block;
+  			height: 1rem;
+  			left: 0;
+  			opacity: 0.5;
+  			position: absolute;
+  			top: 2px;
+  			width: 1rem;
+  		}
+    }
+    &.twitter a:before {
+      background-image: url($imgs + "icons/twitter-white.png");
+    }
+    &.instagram a:before {
+      background-image: url($imgs + "icons/instagram-white.png");
+    }
+  }
+
+// unbox the mission statement and cta button
+.site-footer-grid-box-mission-statement,
+.site-footer-grid-box-cta {
+	background: none;
+	border: none;
+}
+
+// the mission statement
+.site-footer-grid-box-mission-statement {
+	h3 {
+		font-size: 1.2rem;
+		font-weight: 300;
+		line-height: 1.3;
+		margin: 0;
+	}
+	@include responsive(12){
+		padding-right: 0;
+		padding-left: 0;
+	}
+	@include responsive(35){
+		padding-top: 0;
+		padding-bottom: 0;
+		position: relative;
+		width: 60%;
+		width: calc(66.667% - #{$stanPad}) !important;
+		.inner {
+			position: absolute;
+			top: 50%;
+      -ms-transform: translateY(-50%);
+      -webkit-transform: translateY(-50%);
+			transform: translateY(-50%);
+		}
+		h3 {
+			font-size: 1.5em;
+		}
+	}
+}
+
+// the newsletter-form box
+.site-footer-grid-box-newsletter {
+	@include responsive(35){
+		margin-bottom: 0;
+	}
+	.site-footer-grid-box-title a:hover {
+		text-decoration: underline;
+	}
+	form label {
+		margin-top: ($stanPad / 2);
+	}
+	form > div {
+		margin: 0 0 1em 0;
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+	input[type="email"]{
+		height: 2rem;
+		margin-top: ($stanPad / 6);
+		width: 100%;
+	}
+	input[type="submit"]{
+		float: right;
+		padding: 0.25em;
+	}
+  // the open-and-close that's enabled by javascript
+  .js & {
+    .site-footer-grid-box-title {
+  		cursor: pointer;
+  	}
+  	.wpcf7 {
+  		max-height: 0;
+  		overflow: hidden;
+  		transition: all $transDur;
+  		&.open {
+  			max-height: 5000px;
+  			transition: all ($transDur * 6);
+  		}
+  	}
+  }
+}
+
+// the call-to-action box
+.site-footer-grid-box-cta {
+	text-align: center;
+	position: relative;
+	.inner {
+		left: 0;
+		position: absolute;
+		text-align: center;
+		top: 50%;
+		-webkit-transform: translateY(-50%);
+  	-ms-transform: translateY(-50%);
+		transform: translateY(-50%);
+		width: 100%;
+	}
+	.button {
+		display: inline-block;
+		padding: ($stanPad / 2) $stanPad;
+		padding: 0.75rem 2rem;
+		&:hover {
+			text-decoration: none;
+		}
+	}
+}
+
+
+
+
+/* THE FINE PRINT AT THE BOTTOM ------------------------ */
+
+.site-footer-fine-print-strip {
+	background: darken($charcoal,5%);
+	color: lighten($charcoal,25%);
+	padding: 1em;
+	.site-footer-credit a {
+		color: inherit;
+	}
+	@include responsive(35){
+		@include clearfix;
+		.site-footer-copyright {
+			float: left;
+		}
+		.site-footer-credit {
+			float: right;
+		}
+	}
+}

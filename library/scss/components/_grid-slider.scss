@@ -1,0 +1,295 @@
+/* ====================================
+THE MOSAIC SLIDER
+======================================= */
+
+.grid-slider {
+  @include clearfix;
+  background-image: url($imgs + "slider/hayv_kahraman.jpg");
+  background-position: 50% 0;
+  background-size: 180% auto;
+  border: 2px solid $gray;
+  margin: -2px;
+  position: relative;
+  .block {
+    display: block;
+    float: left;
+    width: 25%;
+    .inner,
+    .grid-slider-backside {
+      box-shadow: 0 0 0 2px $gray inset;
+    }
+    .inner {
+      color: rgba(0,0,0,0);
+      color: transparent;
+      display: block;
+      height: 0;
+      padding: 50%;
+      position: relative;
+      width: 0;
+    }
+  }
+  @include responsive(25){
+    background-position: -15% 50%;
+    background-size: 106% auto;
+    border: 3px solid $gray;
+    margin: -3px;
+    .block {
+      .inner,
+      .grid-slider-backside {
+        box-shadow: 0 0 0 3px $gray inset;
+      }
+      .inner {
+        padding: 31% 50%;
+      }
+    }
+  }
+  @include responsive(35){
+    background-position: 0 62%;
+    background-position: -6% 107%;
+    background-size: 110% auto;
+    border: 4px solid $gray;
+    margin: -8px;
+    .block {
+      width: 25%;
+      .inner,
+      .grid-slider-backside {
+        box-shadow: 0 0 0 4px $gray inset;
+      }
+      .inner {
+        padding: 31% 50%;
+      }
+    }
+  }
+  @include responsive(45){
+    background-size: 100% auto;
+    .block {
+      width: 25%;
+    }
+  }
+}
+
+.grid-slider {
+  .grid-slider-text-overlay {
+    background: $cta;
+    background: $gray;
+    color: $text-color;
+    cursor: pointer;
+    height: 25%;
+    left: 50%;
+    position: absolute;
+    text-align: center;
+    transition: all 0.5s ease-in-out;
+    top: 0;
+    width: 50%;
+    z-index: 99;
+    img {
+      display: none;
+    }
+    header {
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    h1 {
+      @include transition(color $transDur);
+      font-size: 0.85rem;
+      font-weight: 300;
+      margin: 0;
+      padding: 1rem;
+      &:hover {
+        @include transition(color $transDur);
+        color: $cta;
+      }
+      @include responsive(25){
+        font-size: 1.1rem;
+      }
+      @include responsive(35){
+        font-size: 1.75rem;
+        padding: 2rem;
+      }
+    }
+  }
+  &.state-6 {
+    .grid-slider-text-overlay h1:hover {
+      color: white;
+    }
+  }
+}
+
+.grid-slider-tease {
+  background: $cta;
+  bottom: 0;
+  cursor: pointer;
+  height: 2rem;
+  left: auto;
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  top: auto;
+  width: 2rem;
+  z-index: 1001;
+  &:before {
+    border-top: 2rem solid darken($blue,15%);
+    border-right: 2rem solid $coral;
+    content: '';
+    display: block;
+    height: 0;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 0;
+  }
+  @include responsive(35){
+    height: 3rem;
+    width: 3rem;
+    &:before {
+      border-top: 3rem solid darken($blue,15%);
+      border-right: 3rem solid $coral;
+    }
+  }
+}
+
+.grid-slider {
+  &.state-2 {
+    .grid-slider-text-overlay {
+      height: 25%;
+      left: 50%;
+      top: 75%;
+      width: 50%;
+    }
+  }
+  &.state-3 {
+    .grid-slider-text-overlay {
+      height: 25%;
+      left: 50%;
+      top: 25%;
+      width: 50%;
+    }
+  }
+  &.state-4 {
+    .grid-slider-text-overlay {
+      height: 25%;
+      left: 0;
+      top: 0;
+      width: 50%;
+    }
+  }
+  &.state-5 {
+    .grid-slider-text-overlay {
+      height: 25%;
+      left: 0;
+      top: 50%;
+      width: 50%;
+    }
+  }
+  &.state-6 {
+    .grid-slider-text-overlay {
+      background: $primary;
+      height: 100%;
+      left: 0;
+      top: 0;
+      width: 100%;
+      img {
+        display: inline-block;
+        max-width: 100px;
+      }
+    }
+    .grid-slider-tease {
+      opacity: 1;
+      @include transition(opacity 1.5s linear 2s);
+    }
+  }
+}
+
+.grid-slider-backside {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+// the "close looking" block
+.block-13 .grid-slider-backside,
+.block-14 .grid-slider-backside {
+  background-image: url($imgs + "slider/looking-mobile-2.jpg");
+  background-position: 0 0;
+  background-size: 200% auto;
+}
+.block-14 .grid-slider-backside {
+  background-position: 100% 0;
+}
+@include responsive(25){
+  .block-13 .grid-slider-backside,
+  .block-14 .grid-slider-backside {
+    background-image: url($imgs + "slider/looking-desktop-2.jpg");
+  }
+}
+
+// the "flexible thinking" block
+.block-11 .grid-slider-backside,
+.block-12 .grid-slider-backside,
+.block-15 .grid-slider-backside,
+.block-16 .grid-slider-backside {
+  background-image: url($imgs + "slider/thinking-mobile.jpg");
+  background-size: 200%;
+}
+.block-12 .grid-slider-backside {
+  background-position: 100% 0;
+}
+.block-15 .grid-slider-backside {
+  background-position: 0% 100%;
+}
+.block-16 .grid-slider-backside {
+  background-position: 100% 100%;
+}
+@include responsive(25){
+  .block-11 .grid-slider-backside,
+  .block-12 .grid-slider-backside,
+  .block-15 .grid-slider-backside,
+  .block-16 .grid-slider-backside {
+    background-image: url($imgs + "slider/thinking-desktop.jpg");
+  }
+}
+
+// the "careful listening" block
+.block-3 .grid-slider-backside,
+.block-4 .grid-slider-backside,
+.block-7 .grid-slider-backside,
+.block-8 .grid-slider-backside {
+  background-image: url($imgs + "slider/listening-mobile-2.jpg");
+  background-size: 200%;
+}
+.block-4 .grid-slider-backside {
+  background-position: 100% 0;
+}
+.block-7 .grid-slider-backside {
+  background-position: 0 100%;
+}
+.block-8 .grid-slider-backside {
+  background-position: 100% 100%;
+}
+@include responsive(25){
+  .block-3 .grid-slider-backside,
+  .block-4 .grid-slider-backside,
+  .block-7 .grid-slider-backside,
+  .block-8 .grid-slider-backside {
+    background-image: url($imgs + "slider/listening-desktop-2.jpg");
+  }
+}
+
+// the "collaboration" block
+.block-1 .grid-slider-backside,
+.block-2 .grid-slider-backside {
+  background-image: url($imgs + "slider/collaboration-mobile.jpg");
+  background-size: 300%;
+}
+.block-2 .grid-slider-backside {
+  background-position: 50% 0%;
+}
+@include responsive(25){
+  .block-1 .grid-slider-backside,
+  .block-2 .grid-slider-backside {
+    background-image: url($imgs + "slider/collaboration-desktop.jpg");
+  }
+}

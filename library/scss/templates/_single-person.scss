@@ -1,0 +1,18 @@
+.single-person {
+  .hero-section {
+    @include responsive(2){
+      .main,
+      .aside {
+        float: left;
+      }
+      .main {
+        padding-left: ($stanPad / 2);
+        width: 66.67%;
+      }
+      .aside {
+        padding-right: ($stanPad / 2);
+        width: 33.33%;
+      }
+    }
+  }
+}

@@ -1,0 +1,110 @@
+.page-about-alternate {
+
+  .about-page-header {
+    background: $gray;
+    padding: 1.25rem 0;
+  }
+
+  .grid-header {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -0.625rem;
+    li {
+      box-sizing: border-box;
+      margin: 0 0.625rem 1.25rem 0.625rem;
+      position: relative;
+      width: 24%;
+      width: calc(25% - 1.25rem);
+    }
+  }
+    .grid-header-block {
+      background: $primary;
+      background-attachment: fixed;
+      background-image: url('/wp-content/uploads/2016/04/5.7.2.jpg');
+      background-position: 50% 60%;
+      background-size: cover;
+      box-sizing: border-box;
+      color: transparent;
+      color: rgba(0,0,0,0);
+      padding: 33% 50%;
+      position: relative;
+      height: 0;
+      width: 0;
+      &:before {
+        transition: opacity 1s;
+        background-color: $primary;
+        background-image: url('/wp-content/uploads/2016/04/5.7.2.jpg');
+        background-position: 50% 60%;
+        background-size: cover;
+        background-blend-mode: luminosity;
+        background-attachment: fixed;
+        content: '';
+        display: block;
+        height: 100%;
+        left: 0;
+        opacity: 1;
+        position: absolute;
+        top: 0;
+        width: 100%;
+      }
+      &:after {
+        transition: opacity 1s;
+        background-image: url("http://www.clker.com/cliparts/0/e/2/6/1194989379339979681pattern-pinstripes-diagonal.svg.hi.png");
+        background-size: 6rem;
+        content: '';
+        display: block;
+        height: 100%;
+        left: 0;
+        opacity: 1;
+        position: absolute;
+        top: 0;
+        width: 100%;
+      }
+      &:hover {
+        &:before,
+        &:after {
+          opacity: 0;
+          transition: opacity 1s;
+        }
+      }
+    }
+    .grid-header-about-block {
+      //background-image: url('/wp-content/uploads/2016/04/5.7.2.jpg');
+    }
+  .about-intro {
+    background: white;
+    padding-top: 3rem !important;
+    h1 {
+      font-size: 2.25rem;
+      margin: 0 0 1rem 0;
+    }
+  }
+  .about-intro-main {
+    border: none;
+    margin-top: -15.75rem;
+    position: relative;
+    p:first-child:first-letter {
+      float: left;
+      font-size: 3rem;
+      line-height: 1;
+      margin-bottom: 0.25rem;
+      margin-right: 0.5rem;
+      margin-top: 0.5rem;
+    }
+  }
+    .about-intro-header {
+      background: white;
+      text-align: right;
+      li {
+        font-size: 1.5rem;
+        font-weight: 100;
+        margin-bottom: 0.75rem;
+        a {
+          text-decoration: none;
+        }
+      }
+    }
+  .about-staff {
+    background: $gray;
+  }
+}

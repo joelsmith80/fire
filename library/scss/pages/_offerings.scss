@@ -1,0 +1,154 @@
+.pg-offerings {
+  padding-bottom: 0;
+  .page-header {
+    margin-bottom: ($stanPad * 3);
+  }
+  .section-intro {
+    margin-bottom: $stanPad;
+    @include responsive(35){
+      padding-right: 15%;
+    }
+    @include responsive(4){
+      padding-right: 25%;
+    }
+    @include responsive(5){
+      padding-right: 40%;
+    }
+  }
+}
+
+.pg-offerings-intro {
+  overflow: hidden;
+  .section-content {
+    background: white;
+    padding: ($stanPad * 2) ($stanPad * 2) ($stanPad * 2) $stanPad;
+    position: relative;
+    /*&:before {
+      background: white;
+      bottom: 0;
+      content: '';
+      display: block;
+      height: ($stanPad * 3);
+      left: -1000%;
+      position: absolute;
+      width: 1000%;
+    }
+    &:after {
+      background: white;
+      content: '';
+      display: block;
+      height: 100%;
+      left: 100%;
+      position: absolute;
+      top: 0;
+      width: 1000%;
+    }*/
+    p:first-child:first-letter {
+      float: left;
+      font-size: 3rem;
+      line-height: 3rem;
+      padding: 0.25rem 0.25rem 0.5rem 0;
+      font-weight: 500;
+    }
+  }
+  aside {
+    background: $gray;
+    padding-bottom: ($stanPad * 2);
+    position: relative;
+    /*&:before {
+      background: $gray;
+      content: '';
+      display: block;
+      height: 100%;
+      left: -1000%;
+      position: absolute;
+      top: 0;
+      width: 1000%;
+    }*/
+  }
+}
+
+.pg-offerings-curriculum {
+  background-blend-mode: luminosity;
+  background-color: $primary;
+  background-image: url($imgs + "dashboard_banner.jpg");
+  position: relative;
+  &:before {
+    background-image: -webkit-radial-gradient(transparent,rgba(0,0,0,0.8));
+    background-image: -moz-radial-gradient(transparent,rgba(0,0,0,0.8));
+    background-image: radial-gradient(transparent,rgba(0,0,0,0.8));
+    content: '';
+    display: block;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+
+    shape-outside: circle(50%);
+
+  }
+  > * {
+    color: white;
+    position: relative;
+  }
+
+}
+
+
+/*.pg-offerings-workshops {
+  .section-intro {
+    background: none !important;
+    border: none !important;
+    padding: 0;
+  }
+}*/
+
+
+.pg-offerings-deepen {
+  background: $secondary;
+  padding-bottom: ($stanPad * 3) !important;
+  position: relative;
+  &:before {
+    background-image: url($imgs + "magnifying-flipped.png");
+    background-position: 2rem 0;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    content: "";
+    display: block;
+    height: 200px;
+    opacity: 0.15;
+    position: absolute;
+    right: 0;
+    top: -1rem;
+    width: 200px;
+  }
+  .card-set-item {
+    border-color: darken($secondary,4%);
+  }
+  .top-tier {
+    margin-bottom: $stanPad;
+  }
+  p.experimental-disclaimer {
+    color: darken($secondary,20%);
+    margin-top: $stanPad;
+  }
+  @include responsive(35){
+    &:before {
+      height: 300px;
+      width: 300px;
+    }
+  }
+  @include responsive(45){
+    &:before {
+      height: 400px;
+      width: 400px;
+    }
+  }
+  @include responsive(5){
+    &:before {
+      height: 500px;
+      width: 500px;
+    }
+  }
+}

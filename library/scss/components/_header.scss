@@ -1,0 +1,500 @@
+/* MAIN HEADER STUFF ------------ */
+
+.site-header {
+	background: $primary;
+	font-size: 0.95em;
+	position: relative;
+}
+  .site-header-wrap {
+    position: relative;
+  }
+  .site-logo {
+		background: white;
+		background: none;
+		margin: 0;
+		padding: 1rem 0;
+		position: relative;
+		@include responsive(35){
+			padding: 1rem 0 0.9rem 0; // the 0.9 aligns the logo bottom with search-field bottom
+			position: relative;
+		}
+    img {
+      max-width: 100px;
+			max-width: 6.5rem;
+      @include responsive(35){
+        max-width: 85px;
+				max-width: 5.5rem;
+      }
+    }
+    a {
+      text-decoration: none;
+    }
+	}
+    .site-title {
+      color: white;
+      display: none;
+      font-weight: 300;
+    }
+    // show the site title only on home page
+    .home .site-title {
+      display: block;
+    }
+
+
+/* GLOBAL NAV-MENU STYLES --------------- */
+
+.site-header-menu {
+	margin: 0;
+	padding: 0;
+	li {
+		font-size: 1em;
+		font-size: 0.9rem;
+		margin: 0;
+		padding: 0;
+	}
+	a {
+		display: block;
+		line-height: 1;
+		padding: 1rem;
+		text-decoration: none;
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+	.sub-menu {
+		margin: 0;
+		padding-left: 1.5rem;
+		a {
+			padding-top: 0.5rem;
+			padding-bottom: 0.5rem;
+		}
+	}
+}
+
+/* THE MAIN NAV AND MAIN MENU ------------------- */
+
+.main-site-nav {
+	background: darken($charcoal,1%);
+  margin-top: 0;
+	max-height: 0;
+	overflow: hidden;
+	position: relative;
+	width: 100%;
+	@include transition(max-height $transDur);
+	@include responsive(35){
+		@include clearfix;
+		background: none;
+		background: white;
+		display: block;
+		// margin-top: 2.5rem;
+		max-height: none;
+		overflow: visible;
+		position: absolute;
+		position: relative;
+	}
+}
+  .main-site-nav-wrap.wrap {
+    @include responsive(12){
+      padding: 0;
+    }
+  }
+  .main-site-menu {
+		background: darken($charcoal,3.5%);
+		background: $gray;
+		a {
+			border-bottom: 1px solid darken($charcoal,6%);
+			border-bottom: 1px solid darken($gray-shadow,5%);
+			color: #ddd;
+			color: $text-color;
+			display: block;
+			padding-left: 2rem;
+			position: relative;
+		}
+		li.give-link a {
+			color: $cta;
+		}
+		li:last-child a {
+			border: none;
+		}
+		.current_page_item {
+			a {
+				color: $primary;
+			}
+		}
+		@include responsive(35){
+			background: none;
+			float: left;
+			li {
+				float: left;
+			}
+			a {
+				border: none;
+				color: $text-color;
+				padding: 1rem 1rem 0.8rem 1rem;
+				&:after {
+					content: none;
+				}
+			}
+			a:active {
+				outline: none;
+			}
+			.current_page_item {
+				a {
+					background: lighten($primary,25%);
+					color: $text-color;
+					position: relative;
+					&:hover {
+						text-decoration: none;
+					}
+				}
+			}
+		}
+		@include responsive(3){
+			li {
+				// font-size: 0.85rem;
+				a {
+					line-height: 1rem;
+					padding: 0.75rem 0.5rem 0.7rem 0.5rem;
+				}
+			}
+			li:nth-child(2) a {
+				padding-left: 1rem;
+			}
+		}
+	}
+
+  /* SEARCH-BAR STUFF -------------------- */
+
+  .menu-item-search {
+  	border-bottom: 1px solid darken($charcoal,6%);
+		border-bottom: 1px solid darken($gray-shadow,5%);
+    padding: 1rem 1rem 1rem 2rem !important;
+  	@include responsive(35){
+  		@include clearfix;
+  		background: white;
+  		border: none;
+  		bottom: 4rem;
+  		display: block;
+  		line-height: 0;
+  		padding: 0 !important;
+  		position: absolute;
+  		right: 0;
+  		width: 250px;
+  		&.search-bar-tucked {
+  			bottom: -2.5rem;
+  			opacity: 0;
+  		}
+  		&.search-bar-open {
+  			bottom: 3.5rem;
+  			opacity: 1;
+				@include transition(bottom $transDur);
+  		}
+  	}
+  }
+  	label[for="s"]{
+  		display: block;
+  		height: 0;
+  		overflow: hidden;
+  		padding: 0;
+  		width: 0;
+  	}
+  	.search-submit-button {
+  		background-color: rgba(255,255,255,0);
+  		background-image: url($imgs + "icons/magnifying-coral.png");
+  		background-position: center;
+  		background-repeat: no-repeat;
+  		background-size: 1.5rem;
+  		border: none;
+  		color: transparent;
+  		color: rgba(0,0,0,0);
+  		display: inline-block;
+  		height: 2rem;
+  		margin-right: 0.5rem;
+  		padding: 0;
+  		width: 2rem;
+  		@include responsive(35){
+  			background-color: $cta;
+  			background-image: none;
+  			color: white;
+  			float: right;
+  			height: 2.75rem; // matches text field
+  			margin-right: 0;
+  			margin-left: 0.5rem;
+				@include transition(background $transDur);
+  			width: 2.75rem; // matches text field
+  			&:hover {
+  				background-color: darken($cta,5%);
+					@include transition(background $transDur);
+  			}
+  		}
+  	}
+  	.search-field {
+  		background: #bbb;
+			background: white;
+  		border: none;
+			border: 1px solid $gray-shadow;
+			-webkit-box-sizing: border-box !important;
+			-moz-box-sizing: border-box !important;
+			-ms-box-sizing: border-box !important;
+			box-sizing: border-box !important;
+			float: left;
+  		height: 2rem;
+  		line-height: 1;
+  		padding: 0.25rem 0.5rem;
+  		width: 80%;
+  		width: calc(100% - (3.5rem));
+  		@include responsive(35){
+  			background: white;
+				border: none;
+  			color: $text-color;
+  			font-size: 0.85rem;
+  			height: 2.75rem; // matches submit button
+  			padding: 0.5rem;
+  			width: calc(100% - 3.5rem);
+  		}
+  	}
+
+/* THE USER/ACCOUNT NAV ------------------------ */
+
+.account-nav {
+	background: darken($cta,1%);
+	@include css-gradient($coral-dark, $coral);
+	@include responsive(12){
+		.wrap {
+			padding: 0;
+		}
+	}
+	@include responsive(35){
+		background: $cta;
+		display: block;
+		position: relative;
+		z-index: 100; // this hides the search bar up underneath
+	}
+}
+
+  .account-menu {
+    max-height: 0;
+    overflow: hidden;
+		@include transition(max-height $transDur);
+    li.menu-item-has-children {
+      padding-bottom: 1rem;
+    }
+    > li {
+      padding: 0 1rem;
+      position: relative;
+      &:after {
+        background: rgba($charcoal, 0.15);
+        bottom: 0;
+        content: '';
+        display: block;
+        height: 1px;
+        left: 0;
+        position: absolute;
+        width: 100%;
+      }
+      &:last-child:after {
+        content: none;
+      }
+    }
+    a {
+      color: $charcoal;
+    }
+    // account-menu desktop response
+    @include responsive(35){
+      display: block;
+      float: right;
+      max-height: none;
+      overflow: visible;
+			padding-right: 2.75rem; // accommodates overlapping search button
+      position: relative;
+			a {
+				color: darken($charcoal,6%);
+			}
+      .desktop-js-search-prompt {
+        background-color: white;
+        background-image: url($imgs + "icons/magnifying-coral.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 1.5rem;
+        cursor: pointer;
+        display: block;
+        height: 2.75rem;
+        position: absolute;
+        right: 0;
+        width: 2.75rem;
+      }
+      > li {
+        float: left;
+        padding: 0;
+        &:after {
+          content: none;
+        }
+        > a {
+					padding: 1rem 1rem 0.8rem 1rem;
+        }
+      }
+      .sub-menu {
+        background: $coral;
+        display: block;
+        max-height: 0;
+        overflow: hidden;
+        padding-left: 0;
+        position: absolute;
+        a {
+					border-bottom: 1px solid rgba($charcoal, 0.15);
+          color: $charcoal;
+					color: white;
+          line-height: 1.3;
+          padding-right: 2rem;
+          padding-left: 1.5rem;
+          &:hover {
+            color: $coral;
+						color: white;
+						color: $charcoal;
+          }
+        }
+				li.all-curriculum-link a {
+					font-style: italic;
+				}
+        li:first-child a {
+          padding-top: 1rem; // double the normal
+        }
+        li:last-child a {
+          border: none;
+          padding-bottom: 1rem; // double the normal
+        }
+      }
+      li.menu-item-has-children {
+        padding-bottom: 0;
+        > a {
+          padding-left: 2.5rem !important;
+          position: relative;
+          &:before {
+						background-image: url($imgs + "icons/option-arrow-charcoal.png");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 1rem;
+            content: '';
+            display: inline-block;
+            height: 1rem;
+            left: 1.15rem;
+            position: absolute;
+            top: 1rem;
+            width: 1rem;
+          }
+        }
+      }
+      li.current_page_item,
+			li.current-menu-item {
+				> a {
+        	background-color: darken($coral,4%);
+					background-color: desaturate(darken($coral,5%),15%);
+					background-color: desaturate(lighten($coral,4%),0%);
+				}
+      }
+			.sub-menu {
+				li.current_page_item,
+				li.current-menu-item {
+					a {
+						background: none;
+					}
+				}
+			}
+    }
+  }
+
+
+/* MENU TOGGLES AND REACTIONS ---------------------------------- */
+
+// all toggle labels
+label.mobile-toggle-label {
+	background: $charcoal;
+	background: white;
+	color: #bbb;
+	color: $text-color;
+	cursor: pointer;
+	display: block;
+	line-height: 1rem;
+	padding: 1rem;
+	padding-left: 2.5rem;
+	position: relative;
+	&:hover {
+		text-decoration: underline;
+	}
+	&:before {
+		background-image: url($imgs + "icons/option-arrow.png");
+		background-image: url($imgs + "icons/option-arrow-charcoal.png");
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: 1rem;
+		content: '';
+		display: block;
+		height: 3rem;
+		position: absolute;
+		left: 0;
+		top: 0;
+		@include transition(all $transDur);
+		width: 3rem;
+	}
+	@include responsive(35){
+		display: none;
+	}
+}
+
+// all actual toggle checkboxes
+.mobile-toggle {
+	left: -10000px;
+	position: absolute;
+	@include responsive(35){
+		display: none;
+	}
+}
+
+// style the Account menu label
+label[for="account-menu-toggle"]{
+	background: $cta;
+	color: $charcoal;
+	&:before {
+		background-image: url($imgs + "icons/option-arrow-on-coral.png");
+	}
+}
+
+// spin the little arrow when clicking open and closed
+.mobile-toggle:checked {
+	+ label:before {
+		@include transition(all $transDur);
+		transform: rotate(180deg);
+	}
+}
+
+// click the toggle labels, open the menus
+.main-menu-toggle:checked ~ nav.main-site-nav,
+.account-menu-toggle:checked ~ ul {
+	display: block;
+	max-height: 2000px;
+	@include transition(max-height $transDur);
+}
+
+// global desktop responses for dropdowns
+@include responsive(35){
+
+	// common dropdown styles, whether triggered by hover or click
+	.account-menu.hoverable .menu-item-has-children:hover,
+	.account-menu .account-sub-menu-is-open {
+		> a:before {
+			@include transition(all $transDur);
+			transform: rotate(180deg);
+		}
+		.sub-menu {
+			max-height: 5000px;
+			min-width: 205px;
+			@include transition(all ($transDur * 4));
+		}
+	}
+}
+
+body.logged-in {
+	li.login-link {
+		display: none;
+	}
+}

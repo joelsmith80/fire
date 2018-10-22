@@ -1,0 +1,26 @@
+// MAIN COLORS
+
+$gray:              #eaedf2;
+$blue:              #95BECE;
+$coral:             #FF6460;
+$charcoal:          #4D4D56;
+$green:             #00D2AB;
+
+// VARIATIONS ON MAIN COLORS
+
+$coral-dark:        darken($coral,4%);
+$gray-shadow:       darken($gray,2%);
+
+// OTHER PALETTE COLORS
+
+$yellow:            #FEEB29;
+$orange:            #FF984D;
+
+// ASSIGNING THOSE COLORS
+
+$primary:           $blue;
+$secondary:         $green;
+$cta:               $coral;
+$text-color:        $charcoal;
+$link-color:        $coral;
+$link-hover:        darken($link-color, 9%);

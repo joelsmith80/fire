@@ -1,0 +1,14 @@
+.training-page {
+  .main.region {
+    margin-top: $stanPad;
+    @include responsive(35){
+      margin-top: 0;
+    }
+  }
+  .card-set-item:last-child {
+    margin-bottom: 0;
+  }
+  p.experimental-disclaimer {
+    margin-top: $stanPad;
+  }
+}

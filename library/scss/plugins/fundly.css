@@ -1,0 +1,112 @@
+/* MISC STUFF */
+.entry-content.page-effect { float: left; }
+
+.entry-content #npe-content .npe-accept-cards-block img { display: inline-block; }
+
+body .npe2-plugin-panel .asset-t select { background-size: auto; }
+
+#npe-content label { display: inline-block; }
+
+.npe-nl-btn { padding: 5px; }
+
+body .npe2-plugin-panel .footer-section-panel input { border-radius: 0; }
+
+.entry-header, .entry-content, .entry-summary, .entry-meta { max-width: none; }
+
+body .npe2-plugin-panel input.required, body .npe2-plugin-panel textarea.required, body .npe2-plugin-panel select.required { border-left: 2px solid #FF6460 !important; }
+
+/* GLOBAL EVENTS */
+/* blow up their negative margin layout convention */
+body .npe2-plugin-panel .common-box .row-event { margin-left: 0; margin-right: 0; }
+
+.fundly-events-container .page-header { border: none; clip: rect(1px, 1px, 1px, 1px); height: 1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
+.fundly-events-container #loadedContent p { margin-bottom: 1.25rem; }
+.fundly-events-container #loadedContent p span { color: #4D4D56; font-size: 16px; }
+
+/* totally blow up their padding system */
+body .npe2-plugin-panel .npe-col-xs-1, body .npe2-plugin-panel .npe-col-sm-1, body .npe2-plugin-panel .npe-col-md-1, body .npe2-plugin-panel .npe-col-lg-1, body .npe2-plugin-panel .npe-col-xs-2, body .npe2-plugin-panel .npe-col-sm-2, body .npe2-plugin-panel .npe-col-md-2, body .npe2-plugin-panel .npe-col-lg-2, body .npe2-plugin-panel .npe-col-xs-event-3, body .npe2-plugin-panel .npe-col-sm-3, body .npe2-plugin-panel .npe-col-md-3, body .npe2-plugin-panel .npe-col-lg-3, body .npe2-plugin-panel .npe-col-xs-event-4, body .npe2-plugin-panel .npe-col-sm-4, body .npe2-plugin-panel .npe-col-md-4, body .npe2-plugin-panel .npe-col-lg-4, body .npe2-plugin-panel .npe-col-xs-event-5, body .npe2-plugin-panel .npe-col-sm-5, body .npe2-plugin-panel .npe-col-md-5, body .npe2-plugin-panel .npe-col-lg-5, body .npe2-plugin-panel .npe-col-xs-6, body .npe2-plugin-panel .npe-col-sm-6, body .npe2-plugin-panel .npe-col-md-6, body .npe2-plugin-panel .npe-col-lg-6, body .npe2-plugin-panel .npe-col-xs-7, body .npe2-plugin-panel .npe-col-sm-7, body .npe2-plugin-panel .npe-col-md-7, body .npe2-plugin-panel .npe-col-lg-7, body .npe2-plugin-panel .npe-col-xs-8, body .npe2-plugin-panel .npe-col-sm-8, body .npe2-plugin-panel .npe-col-md-8, body .npe2-plugin-panel .npe-col-lg-8, body .npe2-plugin-panel .npe-col-xs-9, body .npe2-plugin-panel .npe-col-sm-9, body .npe2-plugin-panel .npe-col-md-9, body .npe2-plugin-panel .npe-col-lg-9, body .npe2-plugin-panel .npe-col-xs-10, body .npe2-plugin-panel .npe-col-sm-10, body .npe2-plugin-panel .npe-col-md-10, body .npe2-plugin-panel .npe-col-lg-10, body .npe2-plugin-panel .npe-col-xs-11, body .npe2-plugin-panel .npe-col-sm-11, body .npe2-plugin-panel .npe-col-md-11, body .npe2-plugin-panel .npe-col-lg-11, body .npe2-plugin-panel .npe-col-xs-12, body .npe2-plugin-panel .npe-col-sm-12, body .npe2-plugin-panel .npe-col-md-12, body .npe2-plugin-panel .npe-col-lg-12 { padding: 0; }
+
+/* get rid of layout borders at mobile */
+@media only screen and (max-width: 767px) { body .npe2-plugin-panel .sap-v { border-right: none; border-bottom: none; } }
+@media only screen and (min-width: 768px) { body .npe2-plugin-panel .sap-v { padding-right: 1.25rem; } }
+body .npe2-plugin-panel .sap-v + div { border-left: none; margin-left: 0; }
+@media only screen and (min-width: 768px) { body .npe2-plugin-panel .sap-v + div { padding-left: 1.25rem; } }
+
+/* EVENTS PAGE ----------------------------------- */
+body .npe2-plugin-panel *::selection, body .npe2-plugin-panel *::-moz-selection { background: #ff6460; }
+@media only screen and (min-width: 768px) { body .npe2-plugin-panel .left-side-panel { padding-right: 1.25rem; }
+  body .npe2-plugin-panel .right-panel-category-box { padding-left: 1.25rem; } }
+body .npe2-plugin-panel .common-content-box { margin-top: 0; }
+body .npe2-plugin-panel #event-list-block { padding-right: 0 !important; padding-left: 0 !important; }
+body .npe2-plugin-panel .common-box .title-box .h2-title #npe-event-list-title { display: none; }
+body .npe2-plugin-panel .list-view ul li { background: white; border: 1px solid #e4e8ee; border-bottom: 2px solid #e4e8ee; margin-bottom: 1.25rem; padding: 1.25rem; }
+body .npe2-plugin-panel .list-view ul li.npeMonthYearTitle { border: none; margin: 0 0 2.5rem 0; margin: 0 0 2.5rem 0 !important; padding: 0; width: 100%; }
+body .npe2-plugin-panel .view-changer { display: none !important; }
+
+body .npe2-plugin-panel .list-view ul li .npeMonthYearTitle { border-color: #4D4D56; }
+
+/* the big ridiculous date */
+body .npe2-plugin-panel .list-view ul li .date-viewer { background: none; border-radius: 0; font-style: italic; padding: 0; }
+
+/* the date and month */
+body .npe2-plugin-panel .list-view ul li .date-viewer .date-box, body .npe2-plugin-panel .list-view ul li .date-viewer .month-box { color: #4D4D56; font-size: 0.85rem; text-align: left; width: auto; }
+
+/* just the date */
+body .npe2-plugin-panel .list-view ul li .date-viewer .date-box { margin: 0 4px 0 0; }
+
+/* the title area for each card in the listing */
+.npe2-plugin-panel .event-title-head { padding: 0 !important; }
+
+/* the title of each card in the listing */
+body .npe2-plugin-panel .list-view ul li .sub-title { transition: color 0.25s; color: #4D4D56; font-size: 1.25rem; line-height: 1.2; margin: 0 0 0.15rem; }
+
+/* the time and date info on each card */
+body .npe2-plugin-panel .list-view ul li .event-label-info { color: #4D4D56; }
+
+body .npe2-plugin-panel .list-view ul li a:hover .sub-title { color: #FF6460; }
+
+body .npe2-plugin-panel .list-view ul li:hover { background: white; }
+
+/* SINGLE-EVENT VIEW ----------------------- */
+body .npe2-plugin-panel .common-box .title-box .h2-title { color: #4D4D56; font-size: 1.75rem; font-weight: 300; line-height: 1.2; margin-bottom: 1.25rem; }
+@media only screen and (min-width: 768px) { body .npe2-plugin-panel .common-box .title-box .h2-title { font-size: 2.074em; } }
+body .npe2-plugin-panel .common-box .title-box .h5-title { color: #4d4d56; font-size: 1rem; line-height: 1.5; }
+body .npe2-plugin-panel .bx-gray-bg { background: none; margin-top: 1.25rem; padding: 0; }
+body .npe2-plugin-panel #grand-total-main-block, body .npe2-plugin-panel .inner-box-spacer { padding: 1.25rem; }
+body .npe2-plugin-panel #grand-total-main-block .npe-col-lg-3 .npe-col-lg-6, body .npe2-plugin-panel #grand-total-main-block .npe-col-sm-12, body .npe2-plugin-panel #grand-total-main-block .npe-col-xs-12 { width: 100% !important; }
+body .npe2-plugin-panel #grand-total-main-block .h5-title { margin-bottom: 0.5rem; }
+body .npe2-plugin-panel #grand-total-main-block .title-box { margin-bottom: 0.5rem; }
+body .npe2-plugin-panel #grand-total-main-block .title-box label { float: left; padding-top: 2px; }
+body .npe2-plugin-panel #grand-total-main-block .title-box #npe-event-grand-total, body .npe2-plugin-panel #grand-total-main-block .title-box .event-detail-total-qty { float: right; }
+body .npe2-plugin-panel .form-donate-panel .row-event > * { float: left; width: 33%; }
+body .npe2-plugin-panel .npe-event-widget-block { padding-left: 27%; padding-left: calc(25% + 0.5rem); position: relative; }
+body .npe2-plugin-panel .npe-event-widget-block .npe-widget-date-box { left: 0; position: absolute; top: 0; width: 25%; }
+body .npe2-plugin-panel .npe-event-widget-block .npe-col-lg-9 { width: 100% !important; }
+body .npe2-plugin-panel .footer-button-full-mobile { margin-bottom: 1.25rem; }
+body .npe2-plugin-panel .searchtag-box { padding: 1.25rem 0 !important; }
+body .npe2-plugin-panel .npe-search-tag-view:first-child { margin-top: 0; }
+
+body .fundly-donation-page .page-header { border: none; clip: rect(1px, 1px, 1px, 1px); height: 1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
+@media only screen and (min-width: 768px) { body .fundly-donation-page .donation-info { float: left; padding-right: 1.25rem; } }
+@media only screen and (min-width: 768px) and (max-width: 1029px) { body .fundly-donation-page .donation-info { width: 470px; } }
+@media only screen and (min-width: 1030px) and (max-width: 1239px) { body .fundly-donation-page .donation-info { width: 630px; } }
+@media only screen and (min-width: 1240px) { body .fundly-donation-page .donation-info { width: 770px; } }
+@media only screen and (min-width: 768px) { body .fundly-donation-page .donation-funds { float: left; padding-left: 1.25rem; } }
+@media only screen and (min-width: 768px) and (max-width: 1029px) { body .fundly-donation-page .donation-funds { width: 230px; } }
+@media only screen and (min-width: 1030px) and (max-width: 1239px) { body .fundly-donation-page .donation-funds { width: 310px; } }
+@media only screen and (min-width: 1240px) { body .fundly-donation-page .donation-funds { width: 378px; } }
+body .fundly-donation-page .npe2-plugin-panel label b { font-weight: normal !important; }
+body .fundly-donation-page .npe2-plugin-panel #donationPageContent .form-donate-panel .row-event > * { float: none; width: 100%; }
+@media only screen and (min-width: 768px) { body .fundly-donation-page .npe2-plugin-panel .recurring-donation-block { padding-left: 1.25rem; } }
+body .fundly-donation-page .npe2-plugin-panel .bg-asset-panel { border-top: 2px solid #e5e5e5; margin-top: 0; padding: 1rem 0; }
+body .fundly-donation-page .npe2-plugin-panel .asset-t { padding-right: 2%; padding-left: 0; }
+body .fundly-donation-page .npe2-plugin-panel .donate-donation-block { margin-bottom: 0.5rem; padding: 0.5rem 0; }
+body .fundly-donation-page .npe2-plugin-panel .donate-donation-block.active { padding: 0 0.5rem; }
+body .fundly-donation-page .npe2-plugin-panel .donate-donation-block.active .amount { top: 0; }
+body .fundly-donation-page .npe2-plugin-panel .donate-donation-block h3 { display: none; }
+body .fundly-donation-page .npe2-plugin-panel .donate-donation-block span.amount { display: inline-block; font-size: 1rem; padding: 0.5rem 0; }
+
+.pg-cert-application .title-box { display: none; }
+.pg-cert-application .npe-membership-title span.ng-binding, .pg-cert-application .membership-view-header span { display: none; }
+
+/*# sourceMappingURL=fundly.css.map */

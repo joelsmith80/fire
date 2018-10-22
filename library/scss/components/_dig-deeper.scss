@@ -1,0 +1,126 @@
+.dig-deeper-main {
+    font-weight: 300;
+    padding-left: $stanPad;
+}
+  
+// THE JS-ENABLED RESPONSE -------------------
+
+.js {
+  
+    // at mobile, throw the expando arrow over to the side
+    .dig-deeper-title {
+        color: $cta;
+        cursor: pointer;
+        font-size: 1.3rem;
+        font-weight: 300;
+        margin: 0 0 1rem 0;
+        padding-right: 2rem;
+        position: relative;
+        &:after {
+            @include transition(all $transDur);
+            background-image: url($imgs + "icons/option-arrow.png");
+            background-size: 1.5rem;
+            background-size: 1rem;
+            content: '';
+            display: block;
+            height: 1.5rem;
+            height: 1rem;
+            position: absolute;
+            right: 0;
+            top: 0;
+            top: 0.3rem;
+            width: 1.5rem;
+            width: 1rem;
+        }
+    }
+  
+    // color the expando arrow on hover
+    .dig-deeper-title:hover {
+        // text-decoration: underline;
+        &:after {
+            background-image: url($imgs + "icons/option-arrow-charcoal.png");
+        }
+    }
+  
+    // when the section's been popped open, color the arrow red and spin it around
+    .dig-deeper-title {
+        &.open {
+            &:after {
+                @include transition(all $transDur);
+                background-image: url($imgs + "icons/option-arrow-coral.png");
+                transform: rotate(180deg);
+            }
+        }
+    }
+  
+    // shut up the expandable content areas
+    .dig-deeper-main {
+        @include transition(all $transDur);
+        max-height: 0;
+        overflow: hidden;
+        // pop them open
+        &.open {
+            @include transition(all ($transDur * 4));
+            margin-bottom: $stanPad;
+            max-height: 3000px;
+        }
+    }
+  
+    // DESKTOP RESPONSE
+  
+    @include responsive(35){
+  
+        // override the expand arrow styles at desktop
+        .dig-deeper-title {
+            padding-right: 0;
+            &:after {
+                content: none;
+            }
+        }
+  
+        // apply expand arrow to span instead
+        .dig-deeper-title {
+            span {
+                position: relative;
+                &:after {
+                    background-image: url($imgs + "icons/option-arrow.png");
+                    background-size: 1.5rem;
+                    background-size: 1rem;
+                    content: '';
+                    display: inline-block;
+                    height: 1.5rem;
+                    height: 1rem;
+                    margin-bottom: -0.3rem;
+                    margin-left: 0.5rem;
+                    position: relative;
+                    right: 0;
+                    right: 0.15rem;
+                    top: 0;
+                    top: -0.15rem;
+                    top: -0.25rem;
+                    width: 1.5rem;
+                    width: 1rem;
+                }
+            }
+        }
+  
+        // color the arrow on hover
+        .dig-deeper-title:hover {
+            span:after {
+                background-image: url($imgs + "icons/option-arrow-charcoal.png");
+            }
+        }
+  
+        // when the section's been popped open, color the arrow red and spin it around
+        .dig-deeper-title {
+            &.open {
+                span:after {
+                    @include transition(all $transDur);
+                    background-image: url($imgs + "icons/option-arrow-coral.png");
+                    transform: rotate(180deg);
+                }
+            }
+        }
+  
+    }
+}

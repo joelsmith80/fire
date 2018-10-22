@@ -1,0 +1,10 @@
+.pg-philip-faqs {
+    .page-intro {
+        @include responsive(35){
+            margin-top: ($stanPad / 2);
+        }
+        @include responsive(45){
+            padding-right: 25%;
+        }
+    }
+}

@@ -1,0 +1,200 @@
+.page-header {
+	margin-bottom: 0.5rem;
+	margin-bottom: 1rem;
+	p,
+	time {
+		margin-top: 0.25rem;
+	}
+	a {
+		text-decoration: none;
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+	@include responsive(35){
+		margin-bottom: 1.25rem;
+	}
+}
+
+// padding rules for when entry-content is used in a PAGE
+.page {
+	.entry-content.page-effect {
+		background: white;
+		border: 1px solid darken($gray,1%); // matches card styles
+		border-bottom: 4px solid darken($gray,2%); // matches card styles
+		padding: $stanPad;
+		@include responsive(35){
+			padding: ($stanPad * 2);
+		}
+		@include responsive(4){
+			padding: ($stanPad * 3);
+		}
+		@include responsive(5){
+			padding: ($stanPad * 4);
+		}
+	}
+}
+
+// padding rules for when entry-content is used in a blog post
+.single-blog {
+	.entry-content {
+		img {
+			@include responsive(35){
+				padding-right: 2rem;
+				padding-left: 2rem;
+			}
+		}
+	}
+}
+
+.entry-content {
+	a {
+		text-decoration: none;
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+	ul {
+		@include content-ul;
+	}
+	ol {
+		@include content-ol;
+	}
+	table {
+		margin: $stanMarge;
+	}
+	b, strong {
+		font-weight: 700;
+	}
+	i, em {
+		font-style: italic;
+	}
+	mark {
+		background: $cta;
+	}
+	address {
+		margin: $stanMarge;
+	}
+	blockquote {
+		color: darken($primary,10%);
+		font-size: 1.5rem;
+		font-weight: 300;
+		margin: 2rem 0;
+		padding: 0 0 0 1rem;
+		border-left: 2px solid $blue;
+		font-style: italic;
+		p:last-child {
+			margin-bottom: 0;
+		}
+	}
+	dd {
+		margin-left: 0;
+		font-size: 0.9rem;
+		margin-bottom: 1rem;
+	}
+	img {
+		height: auto;
+		margin: 0 0 1rem 0;
+		max-width: 100%;
+	}
+	hr {
+		background: darken($gray-shadow,3%);
+		border: 0;
+		display: block;
+		height: 1px;
+		margin: $stanMarge;
+	}
+	// image alignment on a screen this size may be a bit difficult.
+	.alignleft, img.alignleft {
+		@include responsive(25){
+			margin-right: 1.5rem;
+			display: inline;
+			float: left;
+		}
+	}
+	.alignright, img.alignright {
+		@include responsive(25){
+			margin-left: 1.5rem;
+			display: inline;
+			float: right;
+		}
+	}
+	.aligncenter, img.aligncenter {
+		@include responsive(25){
+			margin-right: auto;
+			margin-left: auto;
+			display: block;
+			clear: both;
+		}
+	}
+	.size-auto,
+	.size-full,
+	.size-large,
+	.size-medium,
+	.size-thumbnail {
+		margin: 0 0 1rem 0;
+		max-width: 100%;
+		height: auto;
+	}
+	.size-full {
+		width: 100%;
+	}
+	pre {
+		background: $charcoal;
+		color: $gray;
+		font-size: 0.9em;
+		padding: 1.5em;
+		margin: 0 0 1.5em;
+		border-radius: 3px;
+	}
+}
+
+.wp-caption {
+	margin: $stanMarge;
+	max-width: 100%;
+	padding: 0.25rem;
+	img {
+		max-width: 100%;
+		margin-bottom: 0 !important;
+		width: 100%;
+	}
+	p.wp-caption-text {
+		font-size: 0.85rem;
+		margin: 0.5rem 0 0 0;
+		text-align: center;
+	}
+}
+
+// don't let users see gallery settings
+#gallery-settings * {
+	display: none;
+}
+
+.page-with-sidebar {
+	aside {
+		margin-top: ($stanPad * 1);
+		padding: 0 $stanPad;
+		@include responsive(35){
+			padding: 0 ($stanPad * 2);
+		}
+		@include responsive(45){
+			padding: 0;
+		}
+		@include responsive(4){
+			margin-top: 7.5rem;
+		}
+		@include responsive(5){
+			margin-top: 9rem;
+		}
+	}
+}
+
+.page-with-form-only {
+	.entry-content {
+		form {
+			input[type="submit"]{
+				float: right;
+			}
+		}
+	}
+}

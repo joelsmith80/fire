@@ -1,0 +1,770 @@
+// overriding common shop table elements
+.woocommerce {
+  table.shop_table {
+    border-radius: 0;
+    border: none;
+    border-collapse: separate;
+    margin: 0 0 1rem 0;
+    width: 100%;
+    &:last-child {
+      margin-bottom: 0;
+    }
+    @include responsive(35){
+      border-bottom: 2px solid $gray-shadow;
+    }
+    a {
+      color: $coral;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+    a.button {
+      color: $charcoal;
+      color: white;
+      padding: ($stanPad / 4) ($stanPad / 2);
+      text-decoration: none;
+      @include responsive(3){
+        margin-bottom: ($stanPad / 4);
+      }
+      @include responsive(45){
+        margin-bottom: 0;
+      }
+    }
+    thead {
+      display: none;
+      @include responsive(35){
+        display: table-header-group;
+      }
+    }
+    td, th {
+      font-size: 0.85rem;
+      text-align: center;
+      vertical-align: middle;
+    }
+    tr {
+      display: block;
+      @include responsive(35){
+        display: table-row;
+      }
+    }
+    th {
+      color: lighten($charcoal, 15%);
+      font-size: 0.8rem;
+      font-weight: normal;
+      padding: ($stanPad / 4) ($stanPad / 4) ($stanPad / 4) 0;
+      text-align: left;
+      @include responsive(35){
+        text-align: center;
+      }
+    }
+    td {
+      display: block;
+      text-align: right;
+      &:before {
+        content: attr(data-title) ": ";
+        float: left;
+        font-weight: 700;
+      }
+      @include responsive(35){
+        display: table-cell;
+        text-align: center;
+        &:before {
+          content: none;
+        }
+      }
+    }
+    tbody {
+      @include responsive(35){
+        background: white;
+      }
+      tr {
+        border: 1px solid $gray-shadow;
+        margin-bottom: $stanPad;
+        &:last-child {
+          margin-bottom: 0;
+        }
+        @include responsive(35){
+          border: none;
+          margin-bottom: 0;
+        }
+      }
+      td {
+        border-top: none;
+        border-right: none;
+        border-bottom: 1px solid $gray-shadow;
+        padding: 1rem;
+        @include responsive(35){
+          border-right: 1px solid $gray-shadow;
+          border-bottom: 1px solid $gray-shadow;
+          padding: ($stanPad / 2);
+        }
+      }
+      td:first-child {
+        @include responsive(35){
+          border-left: 1px solid $gray-shadow;
+        }
+      }
+      tr:first-child {
+        @include responsive(35){
+          td {
+            border-top: 1px solid $gray-shadow;
+          }
+        }
+      }
+      tr:last-child {
+        td {
+          border-bottom: none;
+        }
+      }
+      tr:nth-child(even){
+        background: white;
+        @include responsive(35){
+          background: none;
+          td {
+            background-image: url($imgs + "diagonal-10.0.png");
+          }
+        }
+      }
+      tr:nth-child(odd){
+        @include responsive(12){
+          td {
+            border-bottom: 1px solid $gray-shadow;
+            &:last-child {
+              border: none;
+            }
+          }
+        }
+      }
+    }
+    td.order-actions {
+      &:before {
+        content: none;
+      }
+      @include responsive(35){
+        text-align: center;
+      }
+    }
+  }
+  form .form-row .required {
+    color: $cta;
+    text-decoration: none;
+  }
+  form .form-row.woocommerce-invalid label {
+    color: $cta;
+  }
+  form .form-row.woocommerce-validated .select2-container,
+  form .form-row.woocommerce-validated input.input-text,
+  form .form-row.woocommerce-validated select {
+    border-color: $secondary;
+  }
+  form .form-row.woocommerce-invalid .select2-container,
+  form .form-row.woocommerce-invalid input.input-text,
+  form .form-row.woocommerce-invalid select {
+    border-color: $cta;
+  }
+}
+
+// force the table action buttons to the right at mobile
+.woocommerce {
+  table.shop_table_responsive {
+    tr {
+      td.order-actions {
+        @include responsive(12){
+          text-align: right !important;
+        }
+      }
+    }
+  }
+}
+
+// keep all table rows white at mobile
+.woocommerce,
+.woocommerce-page {
+  table.shop_table_responsive {
+    tr:nth-child(2n) {
+      td {
+        background: white;
+      }
+    }
+  }
+}
+
+// the major chunks on the Addresses page
+.woocommerce-Address {
+  background: white;
+  border: 1px solid $gray-shadow;
+  border-bottom: 2px solid $gray-shadow;
+  margin-bottom: 1rem;
+  padding: $stanPad;
+  &:last-child {
+    margin-bottom: 0;
+  }
+  h3 {
+    font-weight: 500;
+    margin-top: 0;
+  }
+}
+
+// the error/status notification flag
+.woocommerce-error,
+.woocommerce-message,
+.woocommerce-Message,
+.woocommerce-info {
+  @include clearfix;
+  background: white;
+  border-top: 2px solid $coral;
+  border-top: none;
+  border-left: 3px solid $coral;
+  border-bottom: 2px solid $gray-shadow;
+  font-size: 0.85rem;
+  line-height: 1.5rem;
+  margin-bottom: 1rem;
+  padding: ($stanPad / 2) $stanPad !important;
+  position: relative;
+  width: 100%;
+  a {
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  a.button {
+    color: white;
+    float: right;
+    font-size: 0.9rem;
+    padding: ($stanPad / 4) ($stanPad / 2);
+    text-align: center;
+    text-decoration: none;
+  }
+  &.woocommerce-success {
+    border-left: 3px solid $green;
+  }
+}
+
+// the Add To Cart shortcode (needs ! to override js styles)
+.add_to_cart_inline {
+  border: none !important;
+  padding: 0 !important;
+}
+
+// more padding for form rows
+.woocommerce {
+  form {
+    .form_row {
+      margin: 0 0 0.5rem 0;
+    }
+    > p:last-child {
+      margin-top: 1rem;
+      text-align: right;
+    }
+  }
+}
+
+// override the height of inputs, so you can read the text
+.woocommerce form .form-row input.input-text,
+.woocommerce form .form-row textarea {
+  line-height: inherit;
+}
+
+// effectively disable the hover effect on disabled buttons
+.woocommerce #respond input#submit.disabled:hover,
+.woocommerce #respond input#submit:disabled:hover,
+.woocommerce #respond input#submit[disabled]:disabled:hover,
+.woocommerce a.button.disabled:hover,
+.woocommerce a.button:disabled:hover,
+.woocommerce a.button[disabled]:disabled:hover,
+.woocommerce button.button.disabled:hover,
+.woocommerce button.button:disabled:hover,
+.woocommerce button.button[disabled]:disabled:hover,
+.woocommerce input.button.disabled:hover,
+.woocommerce input.button:disabled:hover,
+.woocommerce input.button[disabled]:disabled:hover {
+  background: $cta;
+}
+
+// THE CART PAGE --------------------------------------
+
+// no article-style white "page" on checkout
+.woocommerce-cart,
+.woocommerce-checkout {
+  .entry-content {
+    background: none;
+    border: none;
+    padding: 0;
+  }
+}
+
+// change the color of the 'remove' X
+.woocommerce a.remove {
+  color: $cta !important;
+  display: inline-block;
+  text-align: center;
+  &:hover {
+    background: $cta;
+  }
+}
+
+// no background for the row containing the Update Cart button
+table.cart.shop_table_responsive tr:last-child {
+  background: none;
+  background-color: $gray !important;
+  border: none;
+  td {
+    background-color: $gray !important;
+    background-image: none !important;
+    @include responsive(12){
+      padding: 0;
+    }
+    @include responsive(35){
+      border: none;
+      padding-right: 0;
+      padding-bottom: 0;
+    }
+  }
+}
+
+// downplay the Update Cart button
+table.cart {
+  td.actions .button {
+    float: right;
+    width: auto !important;
+  }
+  @include responsive(35){
+    border-bottom: none !important;
+  }
+}
+
+// tighten up the rows in the Cart Collaterals table
+.woocommerce-cart {
+  .cart-collaterals {
+    table.shop_table_responsive {
+      border-bottom: 2px solid $gray-shadow;
+      margin-bottom: 0;
+      th {
+        font-weight: 700;
+        padding: ($stanPad / 2);
+        @include responsive(35){
+          border-right: 1px solid $gray-shadow;
+          text-align: left;
+          width: 20%;
+        }
+      }
+      tr {
+        border-bottom: none;
+        margin-bottom: 0;
+        td {
+          border-bottom: none;
+          @include responsive(35){
+            background: none !important;
+            text-align: left;
+          }
+        }
+      }
+    }
+  }
+}
+
+// override the Cart and Checkout 'proceed buttons'
+#add_payment_method .wc-proceed-to-checkout a.checkout-button,
+.woocommerce-cart .wc-proceed-to-checkout a.checkout-button,
+.woocommerce-checkout .wc-proceed-to-checkout a.checkout-button {
+  background-color: $cta;
+  font-size: inherit;
+  margin-bottom: 0;
+  padding: ($stanPad / 2) $stanPad;
+  &:hover {
+    background: $cta;
+  }
+  @include responsive(35){
+    float: right;
+  }
+}
+
+// get the quantity number input lined up correctly
+table.cart {
+  .quantity {
+    .qty {
+      display: inline-block;
+      padding: 0.25rem;
+    }
+  }
+}
+
+// get rid of the 'Years' variation display in the cart. not needed
+// when we can only buy one product at a time
+.woocommerce {
+  td.product-name {
+    dl.variation {
+      display: none;
+    }
+  }
+}
+
+// THE CHECKOUT PAGE --------------------------------------
+
+// the fake select provided by woocommerce
+.select2-container {
+  .select2-choice {
+    border: 1px solid darken($gray-shadow,4%);
+    border-radius: 0;
+    line-height: 1.5;
+    padding: ($stanPad / 2);
+  }
+}
+
+// the Create New Account section
+.woocommerce-checkout {
+  .create-account {
+    margin-top: ($stanPad * 3);
+    p {
+      margin: 0;
+    }
+    small {
+      font-size: 0.7rem;
+      line-height: 1.3;
+    }
+  }
+}
+
+// the Your Password Is Weak, Bro message
+.woocommerce-password-strength.short {
+  background: $cta;
+}
+
+// add a little space above the review order section
+h3#order_review_heading {
+  margin-top: ($stanPad * 3);
+  margin-bottom: $stanPad;
+}
+
+// sort out styles for Review Order table
+table.shop_table.woocommerce-checkout-review-order-table {
+  td:before {
+    content: none;
+  }
+  tfoot {
+    th, td {
+      float: left;
+      padding: 1rem;
+      width: 50%;
+      @include responsive(35){
+        float: none;
+        text-align: right;
+        width: auto;
+      }
+    }
+    tr:first-child {
+      th, td {
+        border-top: none;
+      }
+    }
+  }
+}
+
+.woocommerce-shipping-fields {
+  #ship-to-different-address {
+    label {
+      float: right;
+    }
+    input {
+      display: inline-block;
+      margin-right: 0.25rem;
+    }
+  }
+}
+
+// at mobile, provide a little space above the second column on the page
+.woocommerce .col2-set .col-2,
+.woocommerce-page .col2-set .col-2 {
+  margin-top: ($stanPad * 3);
+  @include responsive(35){
+    margin-top: 0;
+  }
+}
+
+// padding above payment section
+.woocommerce-checkout-payment {
+  margin-top: ($stanPad * 3);
+}
+
+// tone down styles on payment section
+#add_payment_method #payment,
+.woocommerce-cart #payment,
+.woocommerce-checkout #payment {
+  background: none;
+  border-radius: 0;
+  ul.payment_methods {
+    padding: 0;
+    li {
+      list-style: none;
+      margin: 0 0 $stanPad 0;
+      input {
+        margin: -0.25rem 0.25rem 0 0;
+      }
+    }
+  }
+  div.payment_box {
+    background: none;
+    margin: 0;
+    padding: 0;
+    &:before {
+      content: none;
+    }
+  }
+  div.place-order {
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+  }
+}
+
+// don't show credit card images in Stripe section
+.payment_method_stripe {
+  img {
+    display: none;
+  }
+}
+
+// no space below Place Order section
+.woocommerce #payment #place_order,
+.woocommerce-page #payment #place_order {
+  margin-bottom: 0;
+}
+
+// override styles on Submit button
+.woocommerce #respond input#submit.alt,
+.woocommerce a.button.alt,
+.woocommerce button.button.alt,
+.woocommerce input.button.alt {
+  background: $cta;
+  &:hover {
+    background: $cta;
+  }
+}
+
+// THE ORDER-RECEIVED PAGE --------------------------------------
+
+.woocommerce-order-received {
+  .entry-content {
+    h2, h3 {
+      margin-top: ($stanPad * 2);
+      @include responsive(35){
+        margin-top: ($stanPad * 3);
+      }
+    }
+  }
+  ul.order_details {
+    margin: 0 0 1rem;
+  }
+  table.order_details {
+    @include responsive(12){
+      tbody {
+        tr {
+          @include clearfix;
+        }
+        td.product-name,
+        td.product-total {
+          float: left;
+          text-align: left;
+          width: 50%;
+          &:before {
+            content: none;
+          }
+        }
+        td.product-total {
+          text-align: right;
+        }
+      }
+      tfoot {
+        th, td {
+          float: left;
+          padding: 0.5rem 1rem;
+          width: 50%;
+        }
+        td:before {
+          content: none;
+        }
+      }
+    }
+    @include responsive(35){
+      border-bottom: none !important;
+    }
+  }
+  table.my_account_orders {
+    border-bottom: 2px solid $gray-shadow;
+    tbody {
+      tr {
+        border-bottom: none;
+      }
+      td {
+        border-bottom: 1px solid $gray-shadow !important;
+      }
+      tr:last-child {
+        td {
+          border-bottom: none;
+        }
+      }
+    }
+  }
+  table.customer_details {
+    @include responsive(12){
+      tbody {
+        tr {
+          @include clearfix;
+          background: white;
+          margin-bottom: 0 !important;
+        }
+        &:first-child {
+          td {
+            border-bottom: none;
+          }
+        }
+        &:last-child {
+          border-top: none;
+          border-bottom: 2px solid $gray-shadow;
+        }
+        th, td {
+          float: left;
+          padding: 1rem;
+          width: 50%;
+        }
+        th {
+          border-top: none;
+        }
+        td {
+          border-top: none;
+          border-left: 1px solid $gray-shadow !important;
+          text-align: center;
+          word-break: break-all;
+          &:before {
+            content: none;
+          }
+        }
+      }
+    }
+    @include responsive(35){
+      table {
+        border: 1px solid $gray-shadow;
+      }
+      tbody {
+        tr, th, td {
+          border: none !important;
+        }
+        tr {
+          th {
+            border-right: 1px solid $gray-shadow !important;
+          }
+          th, td {
+            background: none !important;
+            border-bottom: 1px solid $gray-shadow !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+// straighten out table styles for order details
+.woocommerce {
+  .woocommerce-thankyou-order-details {
+    margin: 0 0 $stanPad 0;
+    padding: 0;
+    li {
+      border: none;
+      float: none;
+      margin: 0 0 0.75rem 0;
+    }
+  }
+}
+
+// unbold the table labels
+.woocommerce table.shop_table_responsive tr td::before,
+.woocommerce-page table.shop_table_responsive tr td::before,
+.woocommerce table.shop_table tbody th,
+.woocommerce table.shop_table tfoot th {
+  font-weight: 300;
+}
+
+// the prompt on the my-account login page
+p.lost_password {
+  font-size: 0.85rem;
+  a {
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+// normalizing the checkboxes and radio buttons on the checkout page
+.cart-page {
+  .woocommerce-form-login {
+    input[type="checkbox"]{
+      -moz-appearance: checkbox;
+      -webkit-appearance: checkbox;
+      appearance: checkbox;
+    }
+  }
+  .wc_payment_method {
+    padding: 0;
+    input[type="radio"]{
+      -moz-appearance: radio;
+      -webkit-appearance: radio;
+      appearance: radio;
+      display: block !important;
+      float: left;
+      height: 1rem;
+      margin: 0.45rem 0.5rem 0 0 !important;
+      width: 1rem !important;
+    }
+    input[type="checkbox"]{
+      -moz-appearance: checkbox;
+      -webkit-appearance: checkbox;
+      appearance: checkbox;
+    }
+  }
+}
+// the woo login box, too
+#rememberme {
+  -moz-appearance: checkbox;
+  -webkit-appearance: checkbox;
+  appearance: checkbox;
+}
+
+// the explanation of how group subscriptions work,
+// once you've just bought one
+.after-order-group-sub-instructions {
+  ul {
+    padding-left: 0 !important;
+  }
+  li {
+    list-style: none !important;
+  }
+}
+
+// overriding Stripe styles that were absolute-positioning
+// the Credit Card checkbox on the Checkout page
+.woocommerce-checkout #payment input#payment_method_stripe,
+#add_payment_method #payment input#payment_method_stripe {
+  position: relative;
+  top: 0;
+}
+.woocommerce-checkout #payment .payment_method_stripe label[for=payment_method_stripe]{
+  padding-left: 0;
+}
+
+
+// fixing space issues on the order confirmation screen
+.woocommerce {
+  .woocommerce-customer-details {
+    padding-top: 0;
+    .woocommerce-column__title {
+      margin-top: 0;
+    }
+    address {
+      border: none;
+      padding: 0;
+    }
+  }
+}
